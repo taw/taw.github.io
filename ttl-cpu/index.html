@@ -1,0 +1,153 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+<title>TTL CPU</title>
+</head>
+<body>
+<ul>
+<li><a href="phase_1">2004 11 01 &mdash; /me drawing the CPU to be made</a> (just 2 photos)
+<li><a href="phase_2">2004 11 11 &mdash; /me making a CPU simulation with Verilog</a> (no photos, just Verilog files)
+<li><a href="phase_3">2004 11 22 &mdash; First series of 74LS parts arrived, /me played with them whole night ^_^</a> (11 photos)
+<li><a href="phase_4">2005 06 30 &mdash; Test setup of the switch board and the LED board is complete, layout of the ALU board planned</a> (7 photos)
+<li><a href="phase_5">2005 07 01 &mdash; Power is supplied by the ATX power supply unit's +5V Stand-By instead of the old model railway's supply</a> (3 photos)
+<li><a href="phase_6">2005 07 02 &mdash; Better mechod of soldering &ndash; cables go on one side, but are soldered to chip leads on the other, ALU in progress, but it already works</a> (8 photos)
+<li><a href="phase_7">2005 07 03 &mdash; ALU not finished yet, but it nands, nors and even adds in 8 bit. I almost fried everything in process, but now it works.</a> (6 photos)
+<li><a href="phase_8">2005 07 04 &mdash; ALU making continues, design switched from 1 board to 2 board ALU, circuits for zero-check and other 8 bits started.</a> (7 photos)
+<li><a href="phase_9">2005 07 05 &mdash; ALU finally emits signals over IDE output cable.</a> At the moment only the first 2 bits are connected, as I wanted to make photos fast. The diodes are much brighter than on the photos, due to camera flash (5 photos)
+<li><a href="phase_10">2005 07 05 &mdash; 8 bit ALU complete, here are some calculations.</a> "138 - 28 - 1" means "138 + not28, no carry", "138 - 28" means "138 + not28 + carry". Diode 5 of 0-7 didn't flash, dunno if the problem is at diode board or ALU board. (3 photos)
+<li><a href="phase_11">2005 07 06 &mdash; Life Support from the East.</a> (1 photo)
+</ul>
+
+<h4>Switch board</h4>
+<p>Parts:
+<ul>
+<li>5x 8-DIP switch
+<li>5x 1k&Omega; 8+1 resistor ladder
+<li>1x IDE male socket
+</ul>
+<p>At the moment red power cable is GND and black power cable is +5V.
+The quick rewiring was required to make the negative output strong enough to power 20+ gates,
+like 74LS-compatible stuff is supposed to be.
+
+<p>Maximal output on high is 5 mA, on low it's practically unlimited (directly connected to the power rail,
+of course the cabling will fry at some point).
+<p>As 74LS TTL are supposed to source at least 8 mA on low, in the original wiring the board
+would emit quite weak signals, being able to drive only 12 gates, instead of at least 20.
+<p>This is a problem, as two signals ALU uses are fed to 16 XOR gates each.
+Actually each of this signals is transfered over 2 wires, as each XOR gate sinks
+twice as much current as normal gates.
+
+<h4>LED board</h4>
+<p>Parts:
+<ul>
+<li>20x green LED
+<li>20x red LED
+<li>5x 1k&Omega; 8+1 resistor ladder
+<li>1x IDE male socket
+</ul>
+
+<p>The logic is inverted (it emits light on low voltage).
+This is more practical solution, due to asymmetric 74LS output current limits.
+Maximal output current on high (0.4 mA) is 20 times lower than on low (8 mA).
+
+<h4>ALU board</h4>
+<p>Parts:
+<ul>
+<li>8x 74LS86 Quad XOR
+<li>2x 74LS83 4-bit Full Adder
+<li>2x 74LS00 Quad NAND
+<li>4x 74LS02 Quad NOR
+<li>4x 74LS157 Quad 2-Input Multiplexer
+<li>1x 74LS30 8-input NAND (<b>missing</b>)
+<li>3x IDE male socket - input, output, bidirectional to ALU extension board
+</ul>
+<p>Because it got way too dense, I decided to split ALU board into main ALU board (21 of 31 chips),
+and ALU extension board (the other 10).
+
+<p>Main ALU board does all work on first 8 bits.
+Other 8 bits are processed as follows - negation layer is on the main board,
+xored inputs, carry-8, and select signals go to the extension board,
+output and carry-16 return to the main board, where they're checked for being zero
+and forwarded to output.
+
+<p>It's not all wired yet.
+
+<p>Connector IN:
+<table border=1>
+<tr><th colspan="20">Top
+<tr><td>A 8<td>A 9<td>A 10<td>A 11<td>B 8<td>B 9<td>B 10<td>B 11
+    <td>A 12<td>A 13<td>A 14<td>A 15<td>B 12<td>B 13<td>B 14<td>B 15
+    <td>Ai<td>Bi<td>NC<td>S1
+<tr><td>A 0<td>A 1<td>A 2<td>A 3<td>B 0<td>B 1<td>B 2<td>B 3
+    <td>A 4<td>A 5<td>A 6<td>A 7<td>B 4<td>B 5<td>B 6<td>B 7
+    <td>Ai<td>Bi<td>Carry-IN<td>S0
+<tr><th colspan="20">Bottom
+</table>
+
+<p>Connector OUT:
+<table border=1>
+<tr><th colspan="20">Top
+<tr><td>R 8<td>R 9<td>R 10<td>R 11<td>R 12<td>R 13<td>R 14<td>R 15
+    <td>Carry-OUT<td>Zero<td>NC<td>NC <td>R 7<td>R 6<td>R 5<td>R 4
+    <td>R 3<td>R 2<td>R 1<td>R 0
+<tr><td>NC<td>NC<td>NC<td>NC<td>NC<td>NC<td>NC<td>NC
+    <td>NC<td>NC<td>NC<td>NC<td>NC<td>NC<td>NC<td>NC
+    <td>NC<td>NC<td>NC<td>NC
+<tr><th colspan="20">Bottom
+</table>
+
+<p>Connector EXT:
+<table border=1>
+<tr><th colspan="20">Top
+
+<tr><td>R 8<td>R 9<td>R 10<td>R 11<td>R 12<td>R 13<td>R 14<td>R 15
+    <td>NC<td>NC<td>NC<td>NC<td>NC<td>NC<td>NC<td>NC
+    <td>NC<td>NC<td>Carry-OUT<td>S1
+
+<tr><td>Ax 8<td>Ax 9<td>Ax 10<td>Ax 11<td>Bx 8<td>Bx 9<td>Bx 10<td>Bx 11
+    <td>Ax 12<td>Ax 13<td>Ax 14<td>Ax 15<td>Bx 12<td>Bx 13<td>Bx 14<td>Bx 15
+    <td>NC<td>NC<td>Carry-MID<td>S0
+<tr><th colspan="20">Bottom
+</table>
+
+<ul>
+<li>A - input A
+<li>B - input B
+
+<li>Ai - controls negahiot of input A
+<li>Bi - controls negahiot of input B
+
+<li>S0 - controls first mux layer (low=nand, high=nor)
+<li>S1 - controls second mux layer (low=nand/nor, high=addition)
+
+<li>Ax - input A xor Ai
+<li>Bx - input B xor Bi
+
+<li>Zero - true if R==0
+<li>Carry-IN - carry input to first adder
+<li>Carry-MID - carry output after first 8 bits, input to the other 8 bits
+<li>Carry-OUT - carry output from adding full 16 bits
+
+<li>R - result
+<li>NC - not connected
+
+</ul>
+
+<h4>ALU extension board (planned)</h4>
+<p>Parts:
+<ul>
+<li>2x 74LS83 4-bit Full Adder
+<li>2x 74LS00 Quad NAND
+<li>2x 74LS02 Quad NOR
+<li>4x 74LS157 Quad 2-Input Multiplexer
+<li>1x IDE male socket - bidirectional to ALU board
+</ul>
+
+<h4>Register file (planned)</h4>
+<p>At first I thought I would use 74LS273 octal D flip flops and 74LS151 8-input muxes,
+but after some experience with wiring the ALU I see what a cabling nightmare it would probably be.
+So I think I'll use some 3->8 decoders and octal 3-state drivers. Unfortunately I only have
+a few 74LS240 3-state inverters (that's a minor problem) and no 3->8 decoders.
+
+</body>
+</html>
