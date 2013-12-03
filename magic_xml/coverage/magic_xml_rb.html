@@ -1,0 +1,2009 @@
+    <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+    <html lang='en' xml:lang='en' xmlns='http://www.w3.org/1999/xhtml'>
+      <head>
+        <title>magic_xml.rb - C0 code coverage information</title>
+        <style type='text/css'>body { background-color: rgb(240, 240, 245); }</style>
+        <style type='text/css'>span.cross-ref-title {
+ font-size: 140%;
+}
+span.cross-ref a {
+ text-decoration: none;
+}
+span.cross-ref {
+ background-color:#f3f7fa;
+ border: 1px dashed #333;
+ margin: 1em;
+ padding: 0.5em;
+ overflow: hidden;
+}
+a.crossref-toggle {
+ text-decoration: none;
+}
+span.marked0 {
+ background-color: rgb(185, 210, 200);
+ display: block;
+}
+span.marked1 {
+ background-color: rgb(190, 215, 205);
+ display: block;
+}
+span.inferred0 {
+ background-color: rgb(175, 200, 200);
+ display: block;
+}
+span.inferred1 {
+ background-color: rgb(180, 205, 205);
+ display: block;
+}
+span.uncovered0 {
+ background-color: rgb(225, 110, 110);
+ display: block;
+}
+span.uncovered1 {
+ background-color: rgb(235, 120, 120);
+ display: block;
+}
+span.overview {
+ border-bottom: 8px solid black;
+}
+div.overview {
+ border-bottom: 8px solid black;
+}
+body {
+ font-family: verdana, arial, helvetica;
+}
+div.footer {
+ font-size: 68%;
+ margin-top: 1.5em;
+}
+h1, h2, h3, h4, h5, h6 {
+ margin-bottom: 0.5em;
+}
+h5 {
+ margin-top: 0.5em;
+}
+.hidden {
+ display: none;
+}
+div.separator {
+ height: 10px;
+}
+/* Commented out for better readability, esp. on IE */
+/*
+table tr td, table tr th {
+ font-size: 68%;
+}
+td.value table tr td {
+ font-size: 11px;
+}
+*/
+table.percent_graph {
+ height: 12px;
+ border: #808080 1px solid;
+ empty-cells: show;
+}
+table.percent_graph td.covered {
+ height: 10px;
+ background: #00f000;
+}
+table.percent_graph td.uncovered {
+ height: 10px;
+ background: #e00000;
+}
+table.percent_graph td.NA {
+ height: 10px;
+ background: #eaeaea;
+}
+table.report {
+ border-collapse: collapse;
+ width: 100%;
+}
+table.report td.heading {
+ background: #dcecff;
+ border: #d0d0d0 1px solid;
+ font-weight: bold;
+ text-align: center;
+}
+table.report td.heading:hover {
+ background: #c0ffc0;
+}
+table.report td.text {
+ border: #d0d0d0 1px solid;
+}
+table.report td.value,
+table.report td.lines_total,
+table.report td.lines_code {
+ text-align: right;
+ border: #d0d0d0 1px solid;
+}
+table.report tr.light {
+ background-color: rgb(240, 240, 245);
+}
+table.report tr.dark {
+ background-color: rgb(230, 230, 235);
+}
+</style>
+        <script type='text/javascript'>
+// <![CDATA[
+  function toggleCode( id ) {
+    if ( document.getElementById )
+      elem = document.getElementById( id );
+    else if ( document.all )
+      elem = eval( "document.all." + id );
+    else
+      return false;
+
+    elemStyle = elem.style;
+    
+    if ( elemStyle.display != "block" ) {
+      elemStyle.display = "block"
+    } else {
+      elemStyle.display = "none"
+    }
+
+    return true;
+  }
+  
+  // Make cross-references hidden by default
+  document.writeln( "<style type=\"text/css\">span.cross-ref { display: none }</style>" )
+  // ]]>
+</script>
+        <style type='text/css'>span.run0 {
+  background-color: rgb(178, 204, 255);
+  display: block;
+}
+span.run1 {
+  background-color: rgb(178, 206, 255);
+  display: block;
+}
+span.run2 {
+  background-color: rgb(178, 209, 255);
+  display: block;
+}
+span.run3 {
+  background-color: rgb(178, 211, 255);
+  display: block;
+}
+span.run4 {
+  background-color: rgb(178, 214, 255);
+  display: block;
+}
+span.run5 {
+  background-color: rgb(178, 218, 255);
+  display: block;
+}
+span.run6 {
+  background-color: rgb(178, 220, 255);
+  display: block;
+}
+span.run7 {
+  background-color: rgb(178, 223, 255);
+  display: block;
+}
+span.run8 {
+  background-color: rgb(178, 225, 255);
+  display: block;
+}
+span.run9 {
+  background-color: rgb(178, 228, 255);
+  display: block;
+}
+span.run10 {
+  background-color: rgb(178, 232, 255);
+  display: block;
+}
+span.run11 {
+  background-color: rgb(178, 234, 255);
+  display: block;
+}
+span.run12 {
+  background-color: rgb(178, 237, 255);
+  display: block;
+}
+span.run13 {
+  background-color: rgb(178, 239, 255);
+  display: block;
+}
+span.run14 {
+  background-color: rgb(178, 242, 255);
+  display: block;
+}
+span.run15 {
+  background-color: rgb(178, 246, 255);
+  display: block;
+}
+span.run16 {
+  background-color: rgb(178, 248, 255);
+  display: block;
+}
+span.run17 {
+  background-color: rgb(178, 251, 255);
+  display: block;
+}
+span.run18 {
+  background-color: rgb(178, 253, 255);
+  display: block;
+}
+span.run19 {
+  background-color: rgb(178, 255, 253);
+  display: block;
+}
+span.run20 {
+  background-color: rgb(178, 255, 249);
+  display: block;
+}
+span.run21 {
+  background-color: rgb(178, 255, 247);
+  display: block;
+}
+span.run22 {
+  background-color: rgb(178, 255, 244);
+  display: block;
+}
+span.run23 {
+  background-color: rgb(178, 255, 242);
+  display: block;
+}
+span.run24 {
+  background-color: rgb(178, 255, 239);
+  display: block;
+}
+span.run25 {
+  background-color: rgb(178, 255, 235);
+  display: block;
+}
+span.run26 {
+  background-color: rgb(178, 255, 233);
+  display: block;
+}
+span.run27 {
+  background-color: rgb(178, 255, 230);
+  display: block;
+}
+span.run28 {
+  background-color: rgb(178, 255, 228);
+  display: block;
+}
+span.run29 {
+  background-color: rgb(178, 255, 225);
+  display: block;
+}
+span.run30 {
+  background-color: rgb(178, 255, 221);
+  display: block;
+}
+span.run31 {
+  background-color: rgb(178, 255, 219);
+  display: block;
+}
+span.run32 {
+  background-color: rgb(178, 255, 216);
+  display: block;
+}
+span.run33 {
+  background-color: rgb(178, 255, 214);
+  display: block;
+}
+span.run34 {
+  background-color: rgb(178, 255, 211);
+  display: block;
+}
+span.run35 {
+  background-color: rgb(178, 255, 207);
+  display: block;
+}
+span.run36 {
+  background-color: rgb(178, 255, 205);
+  display: block;
+}
+span.run37 {
+  background-color: rgb(178, 255, 202);
+  display: block;
+}
+span.run38 {
+  background-color: rgb(178, 255, 200);
+  display: block;
+}
+span.run39 {
+  background-color: rgb(178, 255, 197);
+  display: block;
+}
+span.run40 {
+  background-color: rgb(178, 255, 193);
+  display: block;
+}
+span.run41 {
+  background-color: rgb(178, 255, 191);
+  display: block;
+}
+span.run42 {
+  background-color: rgb(178, 255, 188);
+  display: block;
+}
+span.run43 {
+  background-color: rgb(178, 255, 186);
+  display: block;
+}
+span.run44 {
+  background-color: rgb(178, 255, 183);
+  display: block;
+}
+span.run45 {
+  background-color: rgb(178, 255, 179);
+  display: block;
+}
+span.run46 {
+  background-color: rgb(179, 255, 178);
+  display: block;
+}
+span.run47 {
+  background-color: rgb(182, 255, 178);
+  display: block;
+}
+span.run48 {
+  background-color: rgb(184, 255, 178);
+  display: block;
+}
+span.run49 {
+  background-color: rgb(187, 255, 178);
+  display: block;
+}
+span.run50 {
+  background-color: rgb(191, 255, 178);
+  display: block;
+}
+span.run51 {
+  background-color: rgb(193, 255, 178);
+  display: block;
+}
+span.run52 {
+  background-color: rgb(196, 255, 178);
+  display: block;
+}
+span.run53 {
+  background-color: rgb(198, 255, 178);
+  display: block;
+}
+span.run54 {
+  background-color: rgb(201, 255, 178);
+  display: block;
+}
+span.run55 {
+  background-color: rgb(205, 255, 178);
+  display: block;
+}
+span.run56 {
+  background-color: rgb(207, 255, 178);
+  display: block;
+}
+span.run57 {
+  background-color: rgb(210, 255, 178);
+  display: block;
+}
+span.run58 {
+  background-color: rgb(212, 255, 178);
+  display: block;
+}
+span.run59 {
+  background-color: rgb(215, 255, 178);
+  display: block;
+}
+span.run60 {
+  background-color: rgb(219, 255, 178);
+  display: block;
+}
+span.run61 {
+  background-color: rgb(221, 255, 178);
+  display: block;
+}
+span.run62 {
+  background-color: rgb(224, 255, 178);
+  display: block;
+}
+span.run63 {
+  background-color: rgb(226, 255, 178);
+  display: block;
+}
+span.run64 {
+  background-color: rgb(229, 255, 178);
+  display: block;
+}
+span.run65 {
+  background-color: rgb(233, 255, 178);
+  display: block;
+}
+span.run66 {
+  background-color: rgb(235, 255, 178);
+  display: block;
+}
+span.run67 {
+  background-color: rgb(238, 255, 178);
+  display: block;
+}
+span.run68 {
+  background-color: rgb(240, 255, 178);
+  display: block;
+}
+span.run69 {
+  background-color: rgb(243, 255, 178);
+  display: block;
+}
+span.run70 {
+  background-color: rgb(247, 255, 178);
+  display: block;
+}
+span.run71 {
+  background-color: rgb(249, 255, 178);
+  display: block;
+}
+span.run72 {
+  background-color: rgb(252, 255, 178);
+  display: block;
+}
+span.run73 {
+  background-color: rgb(255, 255, 178);
+  display: block;
+}
+span.run74 {
+  background-color: rgb(255, 252, 178);
+  display: block;
+}
+span.run75 {
+  background-color: rgb(255, 248, 178);
+  display: block;
+}
+span.run76 {
+  background-color: rgb(255, 246, 178);
+  display: block;
+}
+span.run77 {
+  background-color: rgb(255, 243, 178);
+  display: block;
+}
+span.run78 {
+  background-color: rgb(255, 240, 178);
+  display: block;
+}
+span.run79 {
+  background-color: rgb(255, 238, 178);
+  display: block;
+}
+span.run80 {
+  background-color: rgb(255, 234, 178);
+  display: block;
+}
+span.run81 {
+  background-color: rgb(255, 232, 178);
+  display: block;
+}
+span.run82 {
+  background-color: rgb(255, 229, 178);
+  display: block;
+}
+span.run83 {
+  background-color: rgb(255, 226, 178);
+  display: block;
+}
+span.run84 {
+  background-color: rgb(255, 224, 178);
+  display: block;
+}
+span.run85 {
+  background-color: rgb(255, 220, 178);
+  display: block;
+}
+span.run86 {
+  background-color: rgb(255, 218, 178);
+  display: block;
+}
+span.run87 {
+  background-color: rgb(255, 215, 178);
+  display: block;
+}
+span.run88 {
+  background-color: rgb(255, 212, 178);
+  display: block;
+}
+span.run89 {
+  background-color: rgb(255, 210, 178);
+  display: block;
+}
+span.run90 {
+  background-color: rgb(255, 206, 178);
+  display: block;
+}
+span.run91 {
+  background-color: rgb(255, 204, 178);
+  display: block;
+}
+span.run92 {
+  background-color: rgb(255, 201, 178);
+  display: block;
+}
+span.run93 {
+  background-color: rgb(255, 198, 178);
+  display: block;
+}
+span.run94 {
+  background-color: rgb(255, 196, 178);
+  display: block;
+}
+span.run95 {
+  background-color: rgb(255, 192, 178);
+  display: block;
+}
+span.run96 {
+  background-color: rgb(255, 189, 178);
+  display: block;
+}
+span.run97 {
+  background-color: rgb(255, 187, 178);
+  display: block;
+}
+span.run98 {
+  background-color: rgb(255, 184, 178);
+  display: block;
+}
+span.run99 {
+  background-color: rgb(255, 182, 178);
+  display: block;
+}
+span.run100 {
+  background-color: rgb(255, 178, 178);
+  display: block;
+}
+</style>
+      </head>
+      <body>
+        <h3>C0 code coverage information</h3>
+                </p>
+        <hr /><pre><span class='marked0'>Code reported as executed by Ruby looks like this...
+</span><span class='marked1'>and this: this line is also marked as covered.
+</span><span class='inferred0'>Lines considered as run by rcov, but not reported by Ruby, look like this,
+</span><span class='inferred1'>and this: these lines were inferred by rcov (using simple heuristics).
+</span><span class='uncovered0'>Finally, here&apos;s a line marked as not executed.
+</span></pre>                       
+    <table class='report'>
+      <thead>
+        <tr>
+          <td class='heading'>Name</td>
+          <td class='heading'>Total lines</td>
+          <td class='heading'>Lines of code</td>
+          <td class='heading'>Total coverage</td>
+          <td class='heading'>Code coverage</td>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class='light'>
+          <td>
+            <a href='magic_xml_rb.html'>magic_xml.rb</a>
+          </td>
+          <td class='lines_total'>
+            <tt>1379</tt>
+          </td>
+          <td class='lines_code'>
+            <tt>964</tt>
+          </td>
+          <td>
+            <table cellspacing='0' cellpadding='0' align='right'>
+              <tr>
+                <td>
+                  <tt class='coverage_total'>91.1%</tt>&nbsp;</td>
+                <td>
+                  <table cellspacing='0' class='percent_graph' cellpadding='0' width='100'>
+                    <tr>
+                      <td class='covered' width='91' />
+                      <td class='uncovered' width='9' />
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+          <td>
+            <table cellspacing='0' cellpadding='0' align='right'>
+              <tr>
+                <td>
+                  <tt class='coverage_code'>92.9%</tt>&nbsp;</td>
+                <td>
+                  <table cellspacing='0' class='percent_graph' cellpadding='0' width='100'>
+                    <tr>
+                      <td class='covered' width='93' />
+                      <td class='uncovered' width='7' />
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </tbody>
+    </table><pre><span class="inferred1"><a name="line1" />   1 # Needed for parsing
+</span><span class="marked0"><a name="line2" />   2 require 'rexml/parsers/baseparser'
+</span><span class="inferred1"><a name="line3" />   3 # Needed for fetching XMLs from the Internet
+</span><span class="marked0"><a name="line4" />   4 require 'uri'
+</span><span class="marked1"><a name="line5" />   5 require 'net/http'
+</span><span class="inferred0"><a name="line6" />   6 
+</span><span class="inferred1"><a name="line7" />   7 # FIXME: Make comment formatting RDoc-friendly. It's not always so now.
+</span><span class="inferred0"><a name="line8" />   8 
+</span><span class="inferred1"><a name="line9" />   9 # In Ruby 2 Symbol will be a subclass of String, and
+</span><span class="inferred0"><a name="line10" />  10 # this won't be needed any more. Before then...
+</span><span class="marked1"><a name="line11" />  11 class Symbol
+</span><span class="marked0"><a name="line12" />  12     include Comparable
+</span><span class="marked1"><a name="line13" />  13     def &lt;=&gt;(other)
+</span><span class="marked0"><a name="line14" />  14         raise ArgumentError.new(&quot;comparison of #{self.class} with #{other.class} failed&quot;) unless other.is_a? Symbol
+</span><span class="marked1"><a name="line15" />  15         to_s &lt;=&gt; other.to_s
+</span><span class="inferred0"><a name="line16" />  16     end
+</span><span class="inferred1"><a name="line17" />  17     
+</span><span class="marked0"><a name="line18" />  18     alias_method :eqeqeq_before_magic_xml, :===
+</span><span class="marked1"><a name="line19" />  19     def ===(*args, &amp;blk)
+</span><span class="marked0"><a name="line20" />  20         if args.size &gt;= 1 and args[0].is_a? XML
+</span><span class="marked1"><a name="line21" />  21             self == args[0].name
+</span><span class="inferred0"><a name="line22" />  22         else
+</span><span class="marked1"><a name="line23" />  23             eqeqeq_before_magic_xml(*args, &amp;blk)
+</span><span class="inferred0"><a name="line24" />  24         end
+</span><span class="inferred1"><a name="line25" />  25     end
+</span><span class="inferred0"><a name="line26" />  26 end
+</span><span class="inferred1"><a name="line27" />  27 
+</span><span class="marked0"><a name="line28" />  28 class Hash
+</span><span class="marked1"><a name="line29" />  29     alias_method :eqeqeq_before_magic_xml, :===
+</span><span class="marked0"><a name="line30" />  30     def ===(*args, &amp;blk)
+</span><span class="marked1"><a name="line31" />  31         if args.size &gt;= 1 and args[0].is_a? XML
+</span><span class="marked0"><a name="line32" />  32             all?{|k,v| v === args[0][k]}
+</span><span class="inferred1"><a name="line33" />  33         else
+</span><span class="marked0"><a name="line34" />  34             eqeqeq_before_magic_xml(*args, &amp;blk)
+</span><span class="inferred1"><a name="line35" />  35         end
+</span><span class="inferred0"><a name="line36" />  36     end
+</span><span class="inferred1"><a name="line37" />  37 end
+</span><span class="inferred0"><a name="line38" />  38 
+</span><span class="marked1"><a name="line39" />  39 class String
+</span><span class="inferred0"><a name="line40" />  40     # Escape string for output as XML text (&lt; &gt; &amp;)
+</span><span class="marked1"><a name="line41" />  41     def xml_escape
+</span><span class="marked0"><a name="line42" />  42         replacements = {&quot;&lt;&quot; =&gt; &quot;&amp;lt;&quot;, &quot;&gt;&quot; =&gt; &quot;&amp;gt;&quot;, &quot;&amp;&quot; =&gt; &quot;&amp;amp;&quot; }
+</span><span class="marked1"><a name="line43" />  43         gsub(/([&lt;&gt;&amp;])/) { replacements[$1] }
+</span><span class="inferred0"><a name="line44" />  44     end
+</span><span class="inferred1"><a name="line45" />  45     # Escape characters for output as XML attribute values (&lt; &gt; &amp; ' &quot;)
+</span><span class="marked0"><a name="line46" />  46     def xml_attr_escape
+</span><span class="marked1"><a name="line47" />  47         replacements = {&quot;&lt;&quot; =&gt; &quot;&amp;lt;&quot;, &quot;&gt;&quot; =&gt; &quot;&amp;gt;&quot;, &quot;&amp;&quot; =&gt; &quot;&amp;amp;&quot;, &quot;\&quot;&quot; =&gt; &quot;&amp;quot;&quot;, &quot;'&quot; =&gt; &quot;&amp;apos;&quot;}
+</span><span class="marked0"><a name="line48" />  48         gsub(/([&lt;&gt;&amp;\'\&quot;])/) { replacements[$1] }
+</span><span class="inferred1"><a name="line49" />  49     end
+</span><span class="inferred0"><a name="line50" />  50     # Unescape entities
+</span><span class="inferred1"><a name="line51" />  51     # Supports:
+</span><span class="inferred0"><a name="line52" />  52     # * Full set of HTML-compatible named entities
+</span><span class="inferred1"><a name="line53" />  53     # * Decimal entities &amp;#1234;
+</span><span class="inferred0"><a name="line54" />  54     # * Hex entities &amp;#xA0b1;
+</span><span class="marked1"><a name="line55" />  55     def xml_unescape(extra_entities=nil)
+</span><span class="inferred0"><a name="line56" />  56         @@xhtml_entity_replacements ||= {
+</span><span class="inferred1"><a name="line57" />  57             'nbsp' =&gt; 160,
+</span><span class="inferred0"><a name="line58" />  58             'iexcl' =&gt; 161,
+</span><span class="inferred1"><a name="line59" />  59             'cent' =&gt; 162,
+</span><span class="inferred0"><a name="line60" />  60             'pound' =&gt; 163,
+</span><span class="inferred1"><a name="line61" />  61             'curren' =&gt; 164,
+</span><span class="inferred0"><a name="line62" />  62             'yen' =&gt; 165,
+</span><span class="inferred1"><a name="line63" />  63             'brvbar' =&gt; 166,
+</span><span class="inferred0"><a name="line64" />  64             'sect' =&gt; 167,
+</span><span class="inferred1"><a name="line65" />  65             'uml' =&gt; 168,
+</span><span class="inferred0"><a name="line66" />  66             'copy' =&gt; 169,
+</span><span class="inferred1"><a name="line67" />  67             'ordf' =&gt; 170,
+</span><span class="inferred0"><a name="line68" />  68             'laquo' =&gt; 171,
+</span><span class="inferred1"><a name="line69" />  69             'not' =&gt; 172,
+</span><span class="inferred0"><a name="line70" />  70             'shy' =&gt; 173,
+</span><span class="inferred1"><a name="line71" />  71             'reg' =&gt; 174,
+</span><span class="inferred0"><a name="line72" />  72             'macr' =&gt; 175,
+</span><span class="inferred1"><a name="line73" />  73             'deg' =&gt; 176,
+</span><span class="inferred0"><a name="line74" />  74             'plusmn' =&gt; 177,
+</span><span class="inferred1"><a name="line75" />  75             'sup2' =&gt; 178,
+</span><span class="inferred0"><a name="line76" />  76             'sup3' =&gt; 179,
+</span><span class="inferred1"><a name="line77" />  77             'acute' =&gt; 180,
+</span><span class="inferred0"><a name="line78" />  78             'micro' =&gt; 181,
+</span><span class="inferred1"><a name="line79" />  79             'para' =&gt; 182,
+</span><span class="inferred0"><a name="line80" />  80             'middot' =&gt; 183,
+</span><span class="inferred1"><a name="line81" />  81             'cedil' =&gt; 184,
+</span><span class="inferred0"><a name="line82" />  82             'sup1' =&gt; 185,
+</span><span class="inferred1"><a name="line83" />  83             'ordm' =&gt; 186,
+</span><span class="inferred0"><a name="line84" />  84             'raquo' =&gt; 187,
+</span><span class="inferred1"><a name="line85" />  85             'frac14' =&gt; 188,
+</span><span class="inferred0"><a name="line86" />  86             'frac12' =&gt; 189,
+</span><span class="inferred1"><a name="line87" />  87             'frac34' =&gt; 190,
+</span><span class="inferred0"><a name="line88" />  88             'iquest' =&gt; 191,
+</span><span class="inferred1"><a name="line89" />  89             'Agrave' =&gt; 192,
+</span><span class="inferred0"><a name="line90" />  90             'Aacute' =&gt; 193,
+</span><span class="inferred1"><a name="line91" />  91             'Acirc' =&gt; 194,
+</span><span class="inferred0"><a name="line92" />  92             'Atilde' =&gt; 195,
+</span><span class="inferred1"><a name="line93" />  93             'Auml' =&gt; 196,
+</span><span class="inferred0"><a name="line94" />  94             'Aring' =&gt; 197,
+</span><span class="inferred1"><a name="line95" />  95             'AElig' =&gt; 198,
+</span><span class="inferred0"><a name="line96" />  96             'Ccedil' =&gt; 199,
+</span><span class="inferred1"><a name="line97" />  97             'Egrave' =&gt; 200,
+</span><span class="inferred0"><a name="line98" />  98             'Eacute' =&gt; 201,
+</span><span class="inferred1"><a name="line99" />  99             'Ecirc' =&gt; 202,
+</span><span class="inferred0"><a name="line100" /> 100             'Euml' =&gt; 203,
+</span><span class="inferred1"><a name="line101" /> 101             'Igrave' =&gt; 204,
+</span><span class="inferred0"><a name="line102" /> 102             'Iacute' =&gt; 205,
+</span><span class="inferred1"><a name="line103" /> 103             'Icirc' =&gt; 206,
+</span><span class="inferred0"><a name="line104" /> 104             'Iuml' =&gt; 207,
+</span><span class="inferred1"><a name="line105" /> 105             'ETH' =&gt; 208,
+</span><span class="inferred0"><a name="line106" /> 106             'Ntilde' =&gt; 209,
+</span><span class="inferred1"><a name="line107" /> 107             'Ograve' =&gt; 210,
+</span><span class="inferred0"><a name="line108" /> 108             'Oacute' =&gt; 211,
+</span><span class="inferred1"><a name="line109" /> 109             'Ocirc' =&gt; 212,
+</span><span class="inferred0"><a name="line110" /> 110             'Otilde' =&gt; 213,
+</span><span class="inferred1"><a name="line111" /> 111             'Ouml' =&gt; 214,
+</span><span class="inferred0"><a name="line112" /> 112             'times' =&gt; 215,
+</span><span class="inferred1"><a name="line113" /> 113             'Oslash' =&gt; 216,
+</span><span class="inferred0"><a name="line114" /> 114             'Ugrave' =&gt; 217,
+</span><span class="inferred1"><a name="line115" /> 115             'Uacute' =&gt; 218,
+</span><span class="inferred0"><a name="line116" /> 116             'Ucirc' =&gt; 219,
+</span><span class="inferred1"><a name="line117" /> 117             'Uuml' =&gt; 220,
+</span><span class="inferred0"><a name="line118" /> 118             'Yacute' =&gt; 221,
+</span><span class="inferred1"><a name="line119" /> 119             'THORN' =&gt; 222,
+</span><span class="inferred0"><a name="line120" /> 120             'szlig' =&gt; 223,
+</span><span class="inferred1"><a name="line121" /> 121             'agrave' =&gt; 224,
+</span><span class="inferred0"><a name="line122" /> 122             'aacute' =&gt; 225,
+</span><span class="inferred1"><a name="line123" /> 123             'acirc' =&gt; 226,
+</span><span class="inferred0"><a name="line124" /> 124             'atilde' =&gt; 227,
+</span><span class="inferred1"><a name="line125" /> 125             'auml' =&gt; 228,
+</span><span class="inferred0"><a name="line126" /> 126             'aring' =&gt; 229,
+</span><span class="inferred1"><a name="line127" /> 127             'aelig' =&gt; 230,
+</span><span class="inferred0"><a name="line128" /> 128             'ccedil' =&gt; 231,
+</span><span class="inferred1"><a name="line129" /> 129             'egrave' =&gt; 232,
+</span><span class="inferred0"><a name="line130" /> 130             'eacute' =&gt; 233,
+</span><span class="inferred1"><a name="line131" /> 131             'ecirc' =&gt; 234,
+</span><span class="inferred0"><a name="line132" /> 132             'euml' =&gt; 235,
+</span><span class="inferred1"><a name="line133" /> 133             'igrave' =&gt; 236,
+</span><span class="inferred0"><a name="line134" /> 134             'iacute' =&gt; 237,
+</span><span class="inferred1"><a name="line135" /> 135             'icirc' =&gt; 238,
+</span><span class="inferred0"><a name="line136" /> 136             'iuml' =&gt; 239,
+</span><span class="inferred1"><a name="line137" /> 137             'eth' =&gt; 240,
+</span><span class="inferred0"><a name="line138" /> 138             'ntilde' =&gt; 241,
+</span><span class="inferred1"><a name="line139" /> 139             'ograve' =&gt; 242,
+</span><span class="inferred0"><a name="line140" /> 140             'oacute' =&gt; 243,
+</span><span class="inferred1"><a name="line141" /> 141             'ocirc' =&gt; 244,
+</span><span class="inferred0"><a name="line142" /> 142             'otilde' =&gt; 245,
+</span><span class="inferred1"><a name="line143" /> 143             'ouml' =&gt; 246,
+</span><span class="inferred0"><a name="line144" /> 144             'divide' =&gt; 247,
+</span><span class="inferred1"><a name="line145" /> 145             'oslash' =&gt; 248,
+</span><span class="inferred0"><a name="line146" /> 146             'ugrave' =&gt; 249,
+</span><span class="inferred1"><a name="line147" /> 147             'uacute' =&gt; 250,
+</span><span class="inferred0"><a name="line148" /> 148             'ucirc' =&gt; 251,
+</span><span class="inferred1"><a name="line149" /> 149             'uuml' =&gt; 252,
+</span><span class="inferred0"><a name="line150" /> 150             'yacute' =&gt; 253,
+</span><span class="inferred1"><a name="line151" /> 151             'thorn' =&gt; 254,
+</span><span class="inferred0"><a name="line152" /> 152             'yuml' =&gt; 255,
+</span><span class="inferred1"><a name="line153" /> 153             'quot' =&gt; 34,
+</span><span class="inferred0"><a name="line154" /> 154             'apos' =&gt; 39, # Wasn't present in the HTML entities set, but is defined in XML standard
+</span><span class="inferred1"><a name="line155" /> 155             'amp' =&gt; 38,
+</span><span class="inferred0"><a name="line156" /> 156             'lt' =&gt; 60,
+</span><span class="inferred1"><a name="line157" /> 157             'gt' =&gt; 62,
+</span><span class="inferred0"><a name="line158" /> 158             'OElig' =&gt; 338,
+</span><span class="inferred1"><a name="line159" /> 159             'oelig' =&gt; 339,
+</span><span class="inferred0"><a name="line160" /> 160             'Scaron' =&gt; 352,
+</span><span class="inferred1"><a name="line161" /> 161             'scaron' =&gt; 353,
+</span><span class="inferred0"><a name="line162" /> 162             'Yuml' =&gt; 376,
+</span><span class="inferred1"><a name="line163" /> 163             'circ' =&gt; 710,
+</span><span class="inferred0"><a name="line164" /> 164             'tilde' =&gt; 732,
+</span><span class="inferred1"><a name="line165" /> 165             'ensp' =&gt; 8194,
+</span><span class="inferred0"><a name="line166" /> 166             'emsp' =&gt; 8195,
+</span><span class="inferred1"><a name="line167" /> 167             'thinsp' =&gt; 8201,
+</span><span class="inferred0"><a name="line168" /> 168             'zwnj' =&gt; 8204,
+</span><span class="inferred1"><a name="line169" /> 169             'zwj' =&gt; 8205,
+</span><span class="inferred0"><a name="line170" /> 170             'lrm' =&gt; 8206,
+</span><span class="inferred1"><a name="line171" /> 171             'rlm' =&gt; 8207,
+</span><span class="inferred0"><a name="line172" /> 172             'ndash' =&gt; 8211,
+</span><span class="inferred1"><a name="line173" /> 173             'mdash' =&gt; 8212,
+</span><span class="inferred0"><a name="line174" /> 174             'lsquo' =&gt; 8216,
+</span><span class="inferred1"><a name="line175" /> 175             'rsquo' =&gt; 8217,
+</span><span class="inferred0"><a name="line176" /> 176             'sbquo' =&gt; 8218,
+</span><span class="inferred1"><a name="line177" /> 177             'ldquo' =&gt; 8220,
+</span><span class="inferred0"><a name="line178" /> 178             'rdquo' =&gt; 8221,
+</span><span class="inferred1"><a name="line179" /> 179             'bdquo' =&gt; 8222,
+</span><span class="inferred0"><a name="line180" /> 180             'dagger' =&gt; 8224,
+</span><span class="inferred1"><a name="line181" /> 181             'Dagger' =&gt; 8225,
+</span><span class="inferred0"><a name="line182" /> 182             'permil' =&gt; 8240,
+</span><span class="inferred1"><a name="line183" /> 183             'lsaquo' =&gt; 8249,
+</span><span class="inferred0"><a name="line184" /> 184             'rsaquo' =&gt; 8250,
+</span><span class="inferred1"><a name="line185" /> 185             'euro' =&gt; 8364,
+</span><span class="inferred0"><a name="line186" /> 186             'fnof' =&gt; 402,
+</span><span class="inferred1"><a name="line187" /> 187             'Alpha' =&gt; 913,
+</span><span class="inferred0"><a name="line188" /> 188             'Beta' =&gt; 914,
+</span><span class="inferred1"><a name="line189" /> 189             'Gamma' =&gt; 915,
+</span><span class="inferred0"><a name="line190" /> 190             'Delta' =&gt; 916,
+</span><span class="inferred1"><a name="line191" /> 191             'Epsilon' =&gt; 917,
+</span><span class="inferred0"><a name="line192" /> 192             'Zeta' =&gt; 918,
+</span><span class="inferred1"><a name="line193" /> 193             'Eta' =&gt; 919,
+</span><span class="inferred0"><a name="line194" /> 194             'Theta' =&gt; 920,
+</span><span class="inferred1"><a name="line195" /> 195             'Iota' =&gt; 921,
+</span><span class="inferred0"><a name="line196" /> 196             'Kappa' =&gt; 922,
+</span><span class="inferred1"><a name="line197" /> 197             'Lambda' =&gt; 923,
+</span><span class="inferred0"><a name="line198" /> 198             'Mu' =&gt; 924,
+</span><span class="inferred1"><a name="line199" /> 199             'Nu' =&gt; 925,
+</span><span class="inferred0"><a name="line200" /> 200             'Xi' =&gt; 926,
+</span><span class="inferred1"><a name="line201" /> 201             'Omicron' =&gt; 927,
+</span><span class="inferred0"><a name="line202" /> 202             'Pi' =&gt; 928,
+</span><span class="inferred1"><a name="line203" /> 203             'Rho' =&gt; 929,
+</span><span class="inferred0"><a name="line204" /> 204             'Sigma' =&gt; 931,
+</span><span class="inferred1"><a name="line205" /> 205             'Tau' =&gt; 932,
+</span><span class="inferred0"><a name="line206" /> 206             'Upsilon' =&gt; 933,
+</span><span class="inferred1"><a name="line207" /> 207             'Phi' =&gt; 934,
+</span><span class="inferred0"><a name="line208" /> 208             'Chi' =&gt; 935,
+</span><span class="inferred1"><a name="line209" /> 209             'Psi' =&gt; 936,
+</span><span class="inferred0"><a name="line210" /> 210             'Omega' =&gt; 937,
+</span><span class="inferred1"><a name="line211" /> 211             'alpha' =&gt; 945,
+</span><span class="inferred0"><a name="line212" /> 212             'beta' =&gt; 946,
+</span><span class="inferred1"><a name="line213" /> 213             'gamma' =&gt; 947,
+</span><span class="inferred0"><a name="line214" /> 214             'delta' =&gt; 948,
+</span><span class="inferred1"><a name="line215" /> 215             'epsilon' =&gt; 949,
+</span><span class="inferred0"><a name="line216" /> 216             'zeta' =&gt; 950,
+</span><span class="inferred1"><a name="line217" /> 217             'eta' =&gt; 951,
+</span><span class="inferred0"><a name="line218" /> 218             'theta' =&gt; 952,
+</span><span class="inferred1"><a name="line219" /> 219             'iota' =&gt; 953,
+</span><span class="inferred0"><a name="line220" /> 220             'kappa' =&gt; 954,
+</span><span class="inferred1"><a name="line221" /> 221             'lambda' =&gt; 955,
+</span><span class="inferred0"><a name="line222" /> 222             'mu' =&gt; 956,
+</span><span class="inferred1"><a name="line223" /> 223             'nu' =&gt; 957,
+</span><span class="inferred0"><a name="line224" /> 224             'xi' =&gt; 958,
+</span><span class="inferred1"><a name="line225" /> 225             'omicron' =&gt; 959,
+</span><span class="inferred0"><a name="line226" /> 226             'pi' =&gt; 960,
+</span><span class="inferred1"><a name="line227" /> 227             'rho' =&gt; 961,
+</span><span class="inferred0"><a name="line228" /> 228             'sigmaf' =&gt; 962,
+</span><span class="inferred1"><a name="line229" /> 229             'sigma' =&gt; 963,
+</span><span class="inferred0"><a name="line230" /> 230             'tau' =&gt; 964,
+</span><span class="inferred1"><a name="line231" /> 231             'upsilon' =&gt; 965,
+</span><span class="inferred0"><a name="line232" /> 232             'phi' =&gt; 966,
+</span><span class="inferred1"><a name="line233" /> 233             'chi' =&gt; 967,
+</span><span class="inferred0"><a name="line234" /> 234             'psi' =&gt; 968,
+</span><span class="inferred1"><a name="line235" /> 235             'omega' =&gt; 969,
+</span><span class="inferred0"><a name="line236" /> 236             'thetasym' =&gt; 977,
+</span><span class="inferred1"><a name="line237" /> 237             'upsih' =&gt; 978,
+</span><span class="inferred0"><a name="line238" /> 238             'piv' =&gt; 982,
+</span><span class="inferred1"><a name="line239" /> 239             'bull' =&gt; 8226,
+</span><span class="inferred0"><a name="line240" /> 240             'hellip' =&gt; 8230,
+</span><span class="inferred1"><a name="line241" /> 241             'prime' =&gt; 8242,
+</span><span class="inferred0"><a name="line242" /> 242             'Prime' =&gt; 8243,
+</span><span class="inferred1"><a name="line243" /> 243             'oline' =&gt; 8254,
+</span><span class="inferred0"><a name="line244" /> 244             'frasl' =&gt; 8260,
+</span><span class="inferred1"><a name="line245" /> 245             'weierp' =&gt; 8472,
+</span><span class="inferred0"><a name="line246" /> 246             'image' =&gt; 8465,
+</span><span class="inferred1"><a name="line247" /> 247             'real' =&gt; 8476,
+</span><span class="inferred0"><a name="line248" /> 248             'trade' =&gt; 8482,
+</span><span class="inferred1"><a name="line249" /> 249             'alefsym' =&gt; 8501,
+</span><span class="inferred0"><a name="line250" /> 250             'larr' =&gt; 8592,
+</span><span class="inferred1"><a name="line251" /> 251             'uarr' =&gt; 8593,
+</span><span class="inferred0"><a name="line252" /> 252             'rarr' =&gt; 8594,
+</span><span class="inferred1"><a name="line253" /> 253             'darr' =&gt; 8595,
+</span><span class="inferred0"><a name="line254" /> 254             'harr' =&gt; 8596,
+</span><span class="inferred1"><a name="line255" /> 255             'crarr' =&gt; 8629,
+</span><span class="inferred0"><a name="line256" /> 256             'lArr' =&gt; 8656,
+</span><span class="inferred1"><a name="line257" /> 257             'uArr' =&gt; 8657,
+</span><span class="inferred0"><a name="line258" /> 258             'rArr' =&gt; 8658,
+</span><span class="inferred1"><a name="line259" /> 259             'dArr' =&gt; 8659,
+</span><span class="inferred0"><a name="line260" /> 260             'hArr' =&gt; 8660,
+</span><span class="inferred1"><a name="line261" /> 261             'forall' =&gt; 8704,
+</span><span class="inferred0"><a name="line262" /> 262             'part' =&gt; 8706,
+</span><span class="inferred1"><a name="line263" /> 263             'exist' =&gt; 8707,
+</span><span class="inferred0"><a name="line264" /> 264             'empty' =&gt; 8709,
+</span><span class="inferred1"><a name="line265" /> 265             'nabla' =&gt; 8711,
+</span><span class="inferred0"><a name="line266" /> 266             'isin' =&gt; 8712,
+</span><span class="inferred1"><a name="line267" /> 267             'notin' =&gt; 8713,
+</span><span class="inferred0"><a name="line268" /> 268             'ni' =&gt; 8715,
+</span><span class="inferred1"><a name="line269" /> 269             'prod' =&gt; 8719,
+</span><span class="inferred0"><a name="line270" /> 270             'sum' =&gt; 8721,
+</span><span class="inferred1"><a name="line271" /> 271             'minus' =&gt; 8722,
+</span><span class="inferred0"><a name="line272" /> 272             'lowast' =&gt; 8727,
+</span><span class="inferred1"><a name="line273" /> 273             'radic' =&gt; 8730,
+</span><span class="inferred0"><a name="line274" /> 274             'prop' =&gt; 8733,
+</span><span class="inferred1"><a name="line275" /> 275             'infin' =&gt; 8734,
+</span><span class="inferred0"><a name="line276" /> 276             'ang' =&gt; 8736,
+</span><span class="inferred1"><a name="line277" /> 277             'and' =&gt; 8743,
+</span><span class="inferred0"><a name="line278" /> 278             'or' =&gt; 8744,
+</span><span class="inferred1"><a name="line279" /> 279             'cap' =&gt; 8745,
+</span><span class="inferred0"><a name="line280" /> 280             'cup' =&gt; 8746,
+</span><span class="inferred1"><a name="line281" /> 281             'int' =&gt; 8747,
+</span><span class="inferred0"><a name="line282" /> 282             'there4' =&gt; 8756,
+</span><span class="inferred1"><a name="line283" /> 283             'sim' =&gt; 8764,
+</span><span class="inferred0"><a name="line284" /> 284             'cong' =&gt; 8773,
+</span><span class="inferred1"><a name="line285" /> 285             'asymp' =&gt; 8776,
+</span><span class="inferred0"><a name="line286" /> 286             'ne' =&gt; 8800,
+</span><span class="inferred1"><a name="line287" /> 287             'equiv' =&gt; 8801,
+</span><span class="inferred0"><a name="line288" /> 288             'le' =&gt; 8804,
+</span><span class="inferred1"><a name="line289" /> 289             'ge' =&gt; 8805,
+</span><span class="inferred0"><a name="line290" /> 290             'sub' =&gt; 8834,
+</span><span class="inferred1"><a name="line291" /> 291             'sup' =&gt; 8835,
+</span><span class="inferred0"><a name="line292" /> 292             'nsub' =&gt; 8836,
+</span><span class="inferred1"><a name="line293" /> 293             'sube' =&gt; 8838,
+</span><span class="inferred0"><a name="line294" /> 294             'supe' =&gt; 8839,
+</span><span class="inferred1"><a name="line295" /> 295             'oplus' =&gt; 8853,
+</span><span class="inferred0"><a name="line296" /> 296             'otimes' =&gt; 8855,
+</span><span class="inferred1"><a name="line297" /> 297             'perp' =&gt; 8869,
+</span><span class="inferred0"><a name="line298" /> 298             'sdot' =&gt; 8901,
+</span><span class="inferred1"><a name="line299" /> 299             'lceil' =&gt; 8968,
+</span><span class="inferred0"><a name="line300" /> 300             'rceil' =&gt; 8969,
+</span><span class="inferred1"><a name="line301" /> 301             'lfloor' =&gt; 8970,
+</span><span class="inferred0"><a name="line302" /> 302             'rfloor' =&gt; 8971,
+</span><span class="inferred1"><a name="line303" /> 303             'lang' =&gt; 9001,
+</span><span class="inferred0"><a name="line304" /> 304             'rang' =&gt; 9002,
+</span><span class="inferred1"><a name="line305" /> 305             'loz' =&gt; 9674,
+</span><span class="inferred0"><a name="line306" /> 306             'spades' =&gt; 9824,
+</span><span class="inferred1"><a name="line307" /> 307             'clubs' =&gt; 9827,
+</span><span class="inferred0"><a name="line308" /> 308             'hearts' =&gt; 9829,
+</span><span class="inferred1"><a name="line309" /> 309             'diams' =&gt; 9830,
+</span><span class="marked0"><a name="line310" /> 310         }
+</span><span class="marked1"><a name="line311" /> 311         gsub(/&amp;(?:([a-zA-Z]+)|#([0-9]+)|#x([a-fA-F0-9]+));/) {
+</span><span class="marked0"><a name="line312" /> 312             if $1 then
+</span><span class="marked1"><a name="line313" /> 313                 v = @@xhtml_entity_replacements[$1]
+</span><span class="inferred0"><a name="line314" /> 314                 # Nonstandard entity
+</span><span class="marked1"><a name="line315" /> 315                 unless v
+</span><span class="marked0"><a name="line316" /> 316                     if extra_entities.is_a? Proc
+</span><span class="marked1"><a name="line317" /> 317                         v = extra_entities.call($1)
+</span><span class="inferred0"><a name="line318" /> 318                     # Well, we expect a Hash here, but any container will do.
+</span><span class="inferred1"><a name="line319" /> 319                     # As long as it's not a nil.
+</span><span class="marked0"><a name="line320" /> 320                     elsif extra_entities
+</span><span class="marked1"><a name="line321" /> 321                         v = extra_entities[$1]
+</span><span class="inferred0"><a name="line322" /> 322                     end
+</span><span class="inferred1"><a name="line323" /> 323                 end
+</span><span class="marked0"><a name="line324" /> 324                 raise &quot;Unknown escape #{$1}&quot; unless v
+</span><span class="marked1"><a name="line325" /> 325             elsif $2
+</span><span class="marked0"><a name="line326" /> 326                 v = $2.to_i
+</span><span class="inferred1"><a name="line327" /> 327             else
+</span><span class="marked0"><a name="line328" /> 328                 v = $3.hex
+</span><span class="inferred1"><a name="line329" /> 329             end
+</span><span class="inferred0"><a name="line330" /> 330             # v can be a String or an Integer
+</span><span class="marked1"><a name="line331" /> 331             if v.is_a? String then v else [v].pack('U') end
+</span><span class="inferred0"><a name="line332" /> 332         }
+</span><span class="inferred1"><a name="line333" /> 333     end
+</span><span class="marked0"><a name="line334" /> 334     def xml_parse
+</span><span class="marked1"><a name="line335" /> 335         XML.parse(self)
+</span><span class="marked0"><a name="line336" /> 336     end
+</span><span class="inferred1"><a name="line337" /> 337 end
+</span><span class="inferred0"><a name="line338" /> 338 
+</span><span class="marked1"><a name="line339" /> 339 class File
+</span><span class="marked0"><a name="line340" /> 340     def xml_parse
+</span><span class="marked1"><a name="line341" /> 341         XML.parse(self)
+</span><span class="marked0"><a name="line342" /> 342     end
+</span><span class="inferred1"><a name="line343" /> 343 end
+</span><span class="inferred0"><a name="line344" /> 344 
+</span><span class="marked1"><a name="line345" /> 345 class Array
+</span><span class="inferred0"><a name="line346" /> 346     # children of any element
+</span><span class="marked1"><a name="line347" /> 347     def children(*args, &amp;blk)
+</span><span class="marked0"><a name="line348" /> 348         res = []
+</span><span class="marked1"><a name="line349" /> 349         each{|c|
+</span><span class="marked0"><a name="line350" /> 350             res += c.children(*args, &amp;blk) if c.is_a? XML
+</span><span class="inferred1"><a name="line351" /> 351         }
+</span><span class="marked0"><a name="line352" /> 352         res
+</span><span class="inferred1"><a name="line353" /> 353     end
+</span><span class="inferred0"><a name="line354" /> 354     # descendants of any element
+</span><span class="marked1"><a name="line355" /> 355     def descendants(*args, &amp;blk)
+</span><span class="marked0"><a name="line356" /> 356         res = []
+</span><span class="marked1"><a name="line357" /> 357         each{|c|
+</span><span class="marked0"><a name="line358" /> 358             res += c.descendants(*args, &amp;blk) if c.is_a? XML
+</span><span class="inferred1"><a name="line359" /> 359         }
+</span><span class="marked0"><a name="line360" /> 360         res
+</span><span class="inferred1"><a name="line361" /> 361     end
+</span><span class="inferred0"><a name="line362" /> 362 end
+</span><span class="inferred1"><a name="line363" /> 363 
+</span><span class="inferred0"><a name="line364" /> 364 # Methods of Enumerable.
+</span><span class="inferred1"><a name="line365" /> 365 # It is not easy to design good methods, because XML
+</span><span class="inferred0"><a name="line366" /> 366 # is not really &quot;a container&quot;, it just acts as one sometimes.
+</span><span class="inferred1"><a name="line367" /> 367 # Generally:
+</span><span class="inferred0"><a name="line368" /> 368 # * Methods that return nil should work
+</span><span class="inferred1"><a name="line369" /> 369 # * Methods that return an element should work
+</span><span class="inferred0"><a name="line370" /> 370 # * Methods that return a container should return XML container, not Array
+</span><span class="inferred1"><a name="line371" /> 371 # * Conversion methods should convert
+</span><span class="inferred0"><a name="line372" /> 372 #
+</span><span class="inferred1"><a name="line373" /> 373 # FIXME: Many methods use .dup, but do we want a shallow or a deep copy ?
+</span><span class="marked0"><a name="line374" /> 374 class XML
+</span><span class="marked1"><a name="line375" /> 375     include Enumerable
+</span><span class="inferred0"><a name="line376" /> 376     # Default any? is ok
+</span><span class="inferred1"><a name="line377" /> 377     # Default all? is ok
+</span><span class="inferred0"><a name="line378" /> 378 
+</span><span class="inferred1"><a name="line379" /> 379     # Iterate over children, possibly with a selector
+</span><span class="marked0"><a name="line380" /> 380     def each(*selector, &amp;blk)
+</span><span class="marked1"><a name="line381" /> 381         children(*selector, &amp;blk)
+</span><span class="marked0"><a name="line382" /> 382         self
+</span><span class="inferred1"><a name="line383" /> 383     end
+</span><span class="inferred0"><a name="line384" /> 384 
+</span><span class="inferred1"><a name="line385" /> 385     # Sort XML children of XML element.
+</span><span class="marked0"><a name="line386" /> 386     def sort_by(*args, &amp;blk)
+</span><span class="marked1"><a name="line387" /> 387         self.dup{ @contents = @contents.select{|c| c.is_a? XML}.sort_by(*args, &amp;blk) }
+</span><span class="inferred0"><a name="line388" /> 388     end
+</span><span class="inferred1"><a name="line389" /> 389 
+</span><span class="inferred0"><a name="line390" /> 390     # Sort children of XML element.
+</span><span class="marked1"><a name="line391" /> 391     def children_sort_by(*args, &amp;blk)
+</span><span class="marked0"><a name="line392" /> 392         self.dup{ @contents = @contents.sort_by(*args, &amp;blk) }
+</span><span class="inferred1"><a name="line393" /> 393     end
+</span><span class="inferred0"><a name="line394" /> 394 
+</span><span class="inferred1"><a name="line395" /> 395     # Sort children of XML element.
+</span><span class="inferred0"><a name="line396" /> 396     #
+</span><span class="inferred1"><a name="line397" /> 397     # Using sort is highly wrong, as XML (and XML-extras) is not even Comparable.
+</span><span class="inferred0"><a name="line398" /> 398     # Use sort_by instead.
+</span><span class="inferred1"><a name="line399" /> 399     #
+</span><span class="inferred0"><a name="line400" /> 400     # Unless you define your own XML#&lt;=&gt; operator, or do something equally weird.
+</span><span class="marked1"><a name="line401" /> 401     def sort(*args, &amp;blk)
+</span><span class="uncovered0"><a name="line402" /> 402         self.dup{ @contents = @contents.sort(*args, &amp;blk) }
+</span><span class="uncovered1"><a name="line403" /> 403     end
+</span><span class="uncovered0"><a name="line404" /> 404 
+</span><span class="uncovered1"><a name="line405" /> 405     #collect/map
+</span><span class="uncovered0"><a name="line406" /> 406     #detect/find
+</span><span class="uncovered1"><a name="line407" /> 407     #each_cons
+</span><span class="uncovered0"><a name="line408" /> 408     #each_slice
+</span><span class="uncovered1"><a name="line409" /> 409     #each_with_index
+</span><span class="uncovered0"><a name="line410" /> 410     #to_a
+</span><span class="uncovered1"><a name="line411" /> 411     #entries
+</span><span class="uncovered0"><a name="line412" /> 412     #enum_cons
+</span><span class="uncovered1"><a name="line413" /> 413     #enum_slice
+</span><span class="uncovered0"><a name="line414" /> 414     #enum
+</span><span class="uncovered1"><a name="line415" /> 415     # grep
+</span><span class="uncovered0"><a name="line416" /> 416     # include?/member?
+</span><span class="uncovered1"><a name="line417" /> 417     # inject
+</span><span class="uncovered0"><a name="line418" /> 418     # max/min
+</span><span class="uncovered1"><a name="line419" /> 419     # max_by/min_by - Ruby 1.9
+</span><span class="uncovered0"><a name="line420" /> 420     # partition
+</span><span class="uncovered1"><a name="line421" /> 421     # reject
+</span><span class="uncovered0"><a name="line422" /> 422     # sort
+</span><span class="uncovered1"><a name="line423" /> 423     # sort_by
+</span><span class="uncovered0"><a name="line424" /> 424     # to_set
+</span><span class="uncovered1"><a name="line425" /> 425     # zip
+</span><span class="uncovered0"><a name="line426" /> 426     # And Enumerable::Enumerator-generating methods
+</span><span class="uncovered1"><a name="line427" /> 427 end
+</span><span class="inferred0"><a name="line428" /> 428 
+</span><span class="inferred1"><a name="line429" /> 429 # Class methods
+</span><span class="marked0"><a name="line430" /> 430 class XML
+</span><span class="inferred1"><a name="line431" /> 431     # XML.foo! == xml!(:foo)
+</span><span class="inferred0"><a name="line432" /> 432     # XML.foo  == xml(:foo)
+</span><span class="marked1"><a name="line433" /> 433     def self.method_missing(meth, *args, &amp;blk) 
+</span><span class="marked0"><a name="line434" /> 434         if meth.to_s =~ /^(.*)!$/
+</span><span class="marked1"><a name="line435" /> 435             xml!($1.to_sym, *args, &amp;blk)
+</span><span class="inferred0"><a name="line436" /> 436         else
+</span><span class="marked1"><a name="line437" /> 437             XML.new(meth, *args, &amp;blk)
+</span><span class="inferred0"><a name="line438" /> 438         end
+</span><span class="inferred1"><a name="line439" /> 439     end
+</span><span class="inferred0"><a name="line440" /> 440 
+</span><span class="inferred1"><a name="line441" /> 441     # Read file and parse
+</span><span class="marked0"><a name="line442" /> 442     def self.from_file(file)
+</span><span class="marked1"><a name="line443" /> 443         file = File.open(file) if file.is_a? String
+</span><span class="marked0"><a name="line444" /> 444         parse(file)
+</span><span class="inferred1"><a name="line445" /> 445     end
+</span><span class="inferred0"><a name="line446" /> 446 
+</span><span class="inferred1"><a name="line447" /> 447     # Fetch URL and parse
+</span><span class="inferred0"><a name="line448" /> 448     # Supported:
+</span><span class="inferred1"><a name="line449" /> 449     # http://.../
+</span><span class="inferred0"><a name="line450" /> 450     # https://.../
+</span><span class="inferred1"><a name="line451" /> 451     # file:foo.xml
+</span><span class="inferred0"><a name="line452" /> 452     # string:&lt;foo/&gt;
+</span><span class="marked1"><a name="line453" /> 453     def self.from_url(url)
+</span><span class="marked0"><a name="line454" /> 454         if url =~ /^string:(.*)$/m
+</span><span class="marked1"><a name="line455" /> 455             parse($1)
+</span><span class="marked0"><a name="line456" /> 456         elsif url =~ /^file:(.*)$/m
+</span><span class="marked1"><a name="line457" /> 457             from_file($1)
+</span><span class="uncovered0"><a name="line458" /> 458         elsif url =~ /^http(s?):/
+</span><span class="uncovered1"><a name="line459" /> 459             ssl = ($1 == &quot;s&quot;)
+</span><span class="uncovered0"><a name="line460" /> 460             # No, seriously - Ruby needs something better than net/http
+</span><span class="uncovered1"><a name="line461" /> 461             # Something that groks basic auth and queries and redirects automatically:
+</span><span class="uncovered0"><a name="line462" /> 462             # HTTP_LIBRARY.get_content(&quot;http://username:passwd/u.r.l/?query&quot;)
+</span><span class="uncovered1"><a name="line463" /> 463             # URI parsing must go inside the library, client programs
+</span><span class="uncovered0"><a name="line464" /> 464             # should have nothing to do with it
+</span><span class="uncovered1"><a name="line465" /> 465 
+</span><span class="uncovered0"><a name="line466" /> 466             # net/http is really inconvenient to use here
+</span><span class="uncovered1"><a name="line467" /> 467             u = URI.parse(url)
+</span><span class="uncovered0"><a name="line468" /> 468             # You're not seeing this:
+</span><span class="uncovered1"><a name="line469" /> 469             if u.query then
+</span><span class="uncovered0"><a name="line470" /> 470                 path = u.path + &quot;?&quot; + u.query
+</span><span class="uncovered1"><a name="line471" /> 471             else
+</span><span class="uncovered0"><a name="line472" /> 472                 path = u.path
+</span><span class="uncovered1"><a name="line473" /> 473             end
+</span><span class="uncovered0"><a name="line474" /> 474             req = Net::HTTP::Get.new(path)
+</span><span class="uncovered1"><a name="line475" /> 475             if u.userinfo
+</span><span class="uncovered0"><a name="line476" /> 476                 username, passwd = u.userinfo.split(/:/,2)
+</span><span class="uncovered1"><a name="line477" /> 477                 req.basic_auth username, passwd
+</span><span class="uncovered0"><a name="line478" /> 478             end
+</span><span class="uncovered1"><a name="line479" /> 479             if ssl
+</span><span class="uncovered0"><a name="line480" /> 480                 # NOTE: You need libopenssl-ruby installed
+</span><span class="uncovered1"><a name="line481" /> 481                 # if you want to use HTTPS. Ubuntu is broken
+</span><span class="uncovered0"><a name="line482" /> 482                 # as it doesn't provide it in the default packages.
+</span><span class="uncovered1"><a name="line483" /> 483                 require 'net/https'
+</span><span class="uncovered0"><a name="line484" /> 484                 http = Net::HTTP.new(u.host, u.port)
+</span><span class="uncovered1"><a name="line485" /> 485                 http.use_ssl = true
+</span><span class="uncovered0"><a name="line486" /> 486                 http.verify_mode = OpenSSL::SSL::VERIFY_NONE
+</span><span class="uncovered1"><a name="line487" /> 487             else
+</span><span class="uncovered0"><a name="line488" /> 488                 http = Net::HTTP.new(u.host, u.port)
+</span><span class="uncovered1"><a name="line489" /> 489             end
+</span><span class="uncovered0"><a name="line490" /> 490             
+</span><span class="uncovered1"><a name="line491" /> 491             res = http.start {|http| http.request(req) }
+</span><span class="uncovered0"><a name="line492" /> 492             # TODO: Throw a more meaningful exception
+</span><span class="uncovered1"><a name="line493" /> 493             parse(res.body)
+</span><span class="uncovered0"><a name="line494" /> 494         else
+</span><span class="uncovered1"><a name="line495" /> 495             raise &quot;URL protocol #{url} not supported (http, https, file, string are supported)&quot;
+</span><span class="uncovered0"><a name="line496" /> 496         end
+</span><span class="marked1"><a name="line497" /> 497     end
+</span><span class="inferred0"><a name="line498" /> 498 
+</span><span class="inferred1"><a name="line499" /> 499     # Like CDuce load_xml
+</span><span class="inferred0"><a name="line500" /> 500     # The path can be:
+</span><span class="inferred1"><a name="line501" /> 501     # * file handler
+</span><span class="inferred0"><a name="line502" /> 502     # * URL (a string with :)
+</span><span class="inferred1"><a name="line503" /> 503     # * file name (a string without :)
+</span><span class="marked0"><a name="line504" /> 504     def self.load(obj)
+</span><span class="marked1"><a name="line505" /> 505         if obj.is_a? String
+</span><span class="marked0"><a name="line506" /> 506             if obj.include? &quot;:&quot;
+</span><span class="marked1"><a name="line507" /> 507                 from_url(obj)
+</span><span class="inferred0"><a name="line508" /> 508             else
+</span><span class="marked1"><a name="line509" /> 509                 from_file(obj)
+</span><span class="inferred0"><a name="line510" /> 510             end
+</span><span class="inferred1"><a name="line511" /> 511         else
+</span><span class="marked0"><a name="line512" /> 512             parse(obj)
+</span><span class="inferred1"><a name="line513" /> 513         end
+</span><span class="marked0"><a name="line514" /> 514     end
+</span><span class="inferred1"><a name="line515" /> 515 
+</span><span class="inferred0"><a name="line516" /> 516     # Parse XML in mixed stream/tree mode
+</span><span class="inferred1"><a name="line517" /> 517     # Basically the idea is that every time we get start element,
+</span><span class="inferred0"><a name="line518" /> 518     # we ask the block what to do about it.
+</span><span class="inferred1"><a name="line519" /> 519     # If it wants a tree below it, it should call e.tree
+</span><span class="inferred0"><a name="line520" /> 520     # If a tree was requested, elements below the current one
+</span><span class="inferred1"><a name="line521" /> 521     # are *not* processed. If it wasn't, they are.
+</span><span class="inferred0"><a name="line522" /> 522     #
+</span><span class="inferred1"><a name="line523" /> 523     # For example:
+</span><span class="inferred0"><a name="line524" /> 524     #  &lt;foo&gt;&lt;bar/&gt;&lt;/foo&gt;&lt;foo2/&gt;
+</span><span class="inferred1"><a name="line525" /> 525     #  yield &lt;foo&gt; ... &lt;/foo&gt;
+</span><span class="inferred0"><a name="line526" /> 526     #  .complete! called
+</span><span class="inferred1"><a name="line527" /> 527     #  process &lt;foo2&gt; next
+</span><span class="inferred0"><a name="line528" /> 528     #
+</span><span class="inferred1"><a name="line529" /> 529     # But:
+</span><span class="inferred0"><a name="line530" /> 530     #  &lt;foo&gt;&lt;bar/&gt;&lt;/foo&gt;&lt;foo2/&gt;
+</span><span class="inferred1"><a name="line531" /> 531     #  yield &lt;foo&gt; ... &lt;/foo&gt;
+</span><span class="inferred0"><a name="line532" /> 532     #  .complete! not called
+</span><span class="inferred1"><a name="line533" /> 533     #  process &lt;bar&gt; next
+</span><span class="inferred0"><a name="line534" /> 534     #
+</span><span class="inferred1"><a name="line535" /> 535     # FIXME: yielded values are not reusable for now
+</span><span class="inferred0"><a name="line536" /> 536     # FIXME: make more object-oriented
+</span><span class="marked1"><a name="line537" /> 537     def self.parse_as_twigs(stream)
+</span><span class="marked0"><a name="line538" /> 538         parser = REXML::Parsers::BaseParser.new stream
+</span><span class="inferred1"><a name="line539" /> 539         # We don't really need to keep the stack ;-)
+</span><span class="marked0"><a name="line540" /> 540         stack = []
+</span><span class="marked1"><a name="line541" /> 541         while true
+</span><span class="marked0"><a name="line542" /> 542             event = parser.pull
+</span><span class="marked1"><a name="line543" /> 543             case event[0]
+</span><span class="marked0"><a name="line544" /> 544             when :start_element
+</span><span class="inferred1"><a name="line545" /> 545                 # Now the evil part evil
+</span><span class="marked0"><a name="line546" /> 546                 attrs = {}
+</span><span class="marked1"><a name="line547" /> 547                 event[2].each{|k,v| attrs[k.to_sym] = v.xml_unescape}
+</span><span class="marked0"><a name="line548" /> 548                 node = XML.new(event[1].to_sym, attrs, *event[3..-1])
+</span><span class="inferred1"><a name="line549" /> 549                 
+</span><span class="inferred0"><a name="line550" /> 550                 # I can't say it's superelegant
+</span><span class="marked1"><a name="line551" /> 551                 class &lt;&lt;node
+</span><span class="marked0"><a name="line552" /> 552                     attr_accessor :do_complete
+</span><span class="marked1"><a name="line553" /> 553                     def complete!
+</span><span class="marked0"><a name="line554" /> 554                         if @do_complete
+</span><span class="marked1"><a name="line555" /> 555                             @do_complete.call
+</span><span class="marked0"><a name="line556" /> 556                             @do_complete = nil
+</span><span class="inferred1"><a name="line557" /> 557                         end
+</span><span class="marked0"><a name="line558" /> 558                     end
+</span><span class="inferred1"><a name="line559" /> 559                 end
+</span><span class="marked0"><a name="line560" /> 560                 node.do_complete = proc{
+</span><span class="marked1"><a name="line561" /> 561                     parse_subtree(node, parser)
+</span><span class="inferred0"><a name="line562" /> 562                 }
+</span><span class="inferred1"><a name="line563" /> 563 
+</span><span class="marked0"><a name="line564" /> 564                 yield(node)
+</span><span class="marked1"><a name="line565" /> 565                 if node.do_complete
+</span><span class="marked0"><a name="line566" /> 566                     stack.push node
+</span><span class="marked1"><a name="line567" /> 567                     node.do_complete = nil # It's too late, complete! shouldn't do anything now
+</span><span class="inferred0"><a name="line568" /> 568                 end
+</span><span class="marked1"><a name="line569" /> 569             when :end_element
+</span><span class="marked0"><a name="line570" /> 570                 stack.pop
+</span><span class="marked1"><a name="line571" /> 571             when :end_document
+</span><span class="marked0"><a name="line572" /> 572                 return
+</span><span class="uncovered1"><a name="line573" /> 573             else
+</span><span class="uncovered0"><a name="line574" /> 574                 # FIXME: Do the right thing.
+</span><span class="uncovered1"><a name="line575" /> 575                 # For now, ignore *everything* else
+</span><span class="uncovered0"><a name="line576" /> 576                 # This is totally incorrect, user might want to 
+</span><span class="uncovered1"><a name="line577" /> 577                 # see text, comments and stuff like that anyway
+</span><span class="uncovered0"><a name="line578" /> 578             end
+</span><span class="uncovered1"><a name="line579" /> 579         end
+</span><span class="uncovered0"><a name="line580" /> 580     end
+</span><span class="inferred1"><a name="line581" /> 581     
+</span><span class="inferred0"><a name="line582" /> 582     # Basically it's a copy of self.parse, ugly ...
+</span><span class="marked1"><a name="line583" /> 583     def self.parse_subtree(start_node, parser)
+</span><span class="marked0"><a name="line584" /> 584         stack = [start_node]
+</span><span class="marked1"><a name="line585" /> 585         res = nil
+</span><span class="marked0"><a name="line586" /> 586         while true
+</span><span class="marked1"><a name="line587" /> 587             event = parser.pull
+</span><span class="marked0"><a name="line588" /> 588             case event[0]
+</span><span class="marked1"><a name="line589" /> 589             when :start_element
+</span><span class="marked0"><a name="line590" /> 590                 attrs = {}
+</span><span class="marked1"><a name="line591" /> 591                 event[2].each{|k,v| attrs[k.to_sym] = v.xml_unescape}
+</span><span class="marked0"><a name="line592" /> 592                 stack &lt;&lt; XML.new(event[1].to_sym, attrs, *event[3..-1])
+</span><span class="marked1"><a name="line593" /> 593                 if stack.size == 1
+</span><span class="uncovered0"><a name="line594" /> 594                     res = stack[0] 
+</span><span class="inferred1"><a name="line595" /> 595                 else
+</span><span class="marked0"><a name="line596" /> 596                     stack[-2] &lt;&lt; stack[-1]
+</span><span class="inferred1"><a name="line597" /> 597                 end
+</span><span class="marked0"><a name="line598" /> 598             when :end_element
+</span><span class="marked1"><a name="line599" /> 599                 stack.pop
+</span><span class="marked0"><a name="line600" /> 600                 return if stack == []
+</span><span class="inferred1"><a name="line601" /> 601             # Needs unescaping
+</span><span class="marked0"><a name="line602" /> 602             when :text
+</span><span class="inferred1"><a name="line603" /> 603                  # Ignore whitespace
+</span><span class="marked0"><a name="line604" /> 604                  if stack.size == 0
+</span><span class="uncovered1"><a name="line605" /> 605                      next if event[1] !~ /\S/
+</span><span class="uncovered0"><a name="line606" /> 606                      raise &quot;Non-whitespace text out of document root&quot;
+</span><span class="uncovered1"><a name="line607" /> 607                  end
+</span><span class="marked0"><a name="line608" /> 608                  stack[-1] &lt;&lt; event[1].xml_unescape
+</span><span class="uncovered1"><a name="line609" /> 609             # CDATA is already unescaped
+</span><span class="uncovered0"><a name="line610" /> 610             when :cdata
+</span><span class="uncovered1"><a name="line611" /> 611                  if stack.size == 0
+</span><span class="uncovered0"><a name="line612" /> 612                      raise &quot;CDATA out of the document root&quot;
+</span><span class="uncovered1"><a name="line613" /> 613                  end
+</span><span class="uncovered0"><a name="line614" /> 614                  stack[-1] &lt;&lt; event[1]
+</span><span class="uncovered1"><a name="line615" /> 615             when :end_document
+</span><span class="uncovered0"><a name="line616" /> 616                 raise &quot;Parse error: end_document inside a subtree, tags are not balanced&quot;
+</span><span class="uncovered1"><a name="line617" /> 617             when :xmldecl,:start_doctype,:end_doctype,:elementdecl,:processing_instruction
+</span><span class="uncovered0"><a name="line618" /> 618                 # Positivery ignore
+</span><span class="uncovered1"><a name="line619" /> 619             when :comment,:externalentity,:entity,:attlistdecl,:notationdecl
+</span><span class="uncovered0"><a name="line620" /> 620                 # Ignore ???
+</span><span class="uncovered1"><a name="line621" /> 621                 #print &quot;Ignored XML event #{event[0]} when parsing\n&quot;
+</span><span class="uncovered0"><a name="line622" /> 622             else
+</span><span class="uncovered1"><a name="line623" /> 623                 # Huh ? What's that ?
+</span><span class="uncovered0"><a name="line624" /> 624                 #print &quot;Unknown XML event #{event[0]} when parsing\n&quot;
+</span><span class="uncovered1"><a name="line625" /> 625             end
+</span><span class="uncovered0"><a name="line626" /> 626         end
+</span><span class="uncovered1"><a name="line627" /> 627         res
+</span><span class="uncovered0"><a name="line628" /> 628 
+</span><span class="uncovered1"><a name="line629" /> 629     end
+</span><span class="inferred0"><a name="line630" /> 630 
+</span><span class="inferred1"><a name="line631" /> 631     # Parse XML using REXML. Available options:
+</span><span class="inferred0"><a name="line632" /> 632     # * :extra_entities =&gt; Proc or Hash (default = nil)
+</span><span class="inferred1"><a name="line633" /> 633     # * :remove_pretty_printing =&gt; true/false (default = false)
+</span><span class="inferred0"><a name="line634" /> 634     # * :comments =&gt; true/false (default = false)
+</span><span class="inferred1"><a name="line635" /> 635     # * :pi =&gt; true/false (default = false)
+</span><span class="inferred0"><a name="line636" /> 636     # * :normalize =&gt; true/false (default = false) - normalize
+</span><span class="inferred1"><a name="line637" /> 637     # * :multiple_roots =&gt; true/false (default=false) - document
+</span><span class="inferred0"><a name="line638" /> 638     #      can have any number of roots (instread of one).
+</span><span class="inferred1"><a name="line639" /> 639     #      Return all in an array instead of root/nil.
+</span><span class="inferred0"><a name="line640" /> 640     #      Also include non-elements (String/PI/Comment) in the return set !!!
+</span><span class="inferred1"><a name="line641" /> 641     #
+</span><span class="inferred0"><a name="line642" /> 642     # FIXME: :comments/:pi will break everything
+</span><span class="inferred1"><a name="line643" /> 643     # if there are comments/PIs outside document root.
+</span><span class="inferred0"><a name="line644" /> 644     # Now PIs are outside the document root more often than not,
+</span><span class="inferred1"><a name="line645" /> 645     # so we're pretty much screwed here.
+</span><span class="inferred0"><a name="line646" /> 646     #
+</span><span class="inferred1"><a name="line647" /> 647     # FIXME: Integrate all kinds of parse, and make them support extra options
+</span><span class="inferred0"><a name="line648" /> 648     #
+</span><span class="inferred1"><a name="line649" /> 649     # FIXME: Benchmark normalize!
+</span><span class="inferred0"><a name="line650" /> 650     #
+</span><span class="inferred1"><a name="line651" /> 651     # FIXME: Benchmark dup-based Enumerable methods
+</span><span class="inferred0"><a name="line652" /> 652     #
+</span><span class="inferred1"><a name="line653" /> 653     # FIXME: Make it possible to include bogus XML_Document superparent,
+</span><span class="inferred0"><a name="line654" /> 654     #        and to make it support out-of-root PIs/Comments
+</span><span class="marked1"><a name="line655" /> 655     def self.parse(stream, options={})
+</span><span class="marked0"><a name="line656" /> 656         extra_entities = options[:extra_entities]
+</span><span class="inferred1"><a name="line657" /> 657 
+</span><span class="marked0"><a name="line658" /> 658         parser = REXML::Parsers::BaseParser.new stream
+</span><span class="marked1"><a name="line659" /> 659         stack = [[]]
+</span><span class="inferred0"><a name="line660" /> 660         
+</span><span class="marked1"><a name="line661" /> 661         while true
+</span><span class="marked0"><a name="line662" /> 662             event = parser.pull
+</span><span class="marked1"><a name="line663" /> 663             case event[0]
+</span><span class="marked0"><a name="line664" /> 664             when :start_element
+</span><span class="marked1"><a name="line665" /> 665                 attrs = {}
+</span><span class="marked0"><a name="line666" /> 666                 event[2].each{|k,v| attrs[k.to_sym] = v.xml_unescape(extra_entities) }
+</span><span class="marked1"><a name="line667" /> 667                 stack &lt;&lt; XML.new(event[1].to_sym, attrs, event[3..-1])
+</span><span class="marked0"><a name="line668" /> 668                 stack[-2] &lt;&lt; stack[-1]
+</span><span class="marked1"><a name="line669" /> 669             when :end_element
+</span><span class="marked0"><a name="line670" /> 670                 stack.pop
+</span><span class="inferred1"><a name="line671" /> 671             # Needs unescaping
+</span><span class="marked0"><a name="line672" /> 672             when :text
+</span><span class="marked1"><a name="line673" /> 673                  e = event[1].xml_unescape(extra_entities)
+</span><span class="inferred0"><a name="line674" /> 674                  # Either inside root or in multi-root mode
+</span><span class="marked1"><a name="line675" /> 675                  if stack.size &gt; 1 or options[:multiple_roots]
+</span><span class="marked0"><a name="line676" /> 676                      stack[-1] &lt;&lt; e
+</span><span class="uncovered1"><a name="line677" /> 677                  elsif event[1] !~ /\S/
+</span><span class="uncovered0"><a name="line678" /> 678                      # Ignore out-of-root whitespace in single-root mode
+</span><span class="uncovered1"><a name="line679" /> 679                  else
+</span><span class="uncovered0"><a name="line680" /> 680                      raise &quot;Non-whitespace text out of document root (and not in multiroot mode): #{event[1]}&quot;
+</span><span class="uncovered1"><a name="line681" /> 681                  end
+</span><span class="inferred0"><a name="line682" /> 682             # CDATA is already unescaped
+</span><span class="marked1"><a name="line683" /> 683             when :cdata
+</span><span class="marked0"><a name="line684" /> 684                 e = event[1]
+</span><span class="marked1"><a name="line685" /> 685                 if stack.size &gt; 1 or options[:multiple_roots]
+</span><span class="marked0"><a name="line686" /> 686                     stack[-1] &lt;&lt; e
+</span><span class="uncovered1"><a name="line687" /> 687                 else
+</span><span class="uncovered0"><a name="line688" /> 688                     raise &quot;CDATA out of the document root&quot;
+</span><span class="uncovered1"><a name="line689" /> 689                 end
+</span><span class="marked0"><a name="line690" /> 690             when :comment
+</span><span class="marked1"><a name="line691" /> 691                 next unless options[:comments]
+</span><span class="marked0"><a name="line692" /> 692                 e = XML_Comment.new(event[1])
+</span><span class="marked1"><a name="line693" /> 693                 if stack.size &gt; 1 or options[:multiple_roots]
+</span><span class="marked0"><a name="line694" /> 694                     stack[-1] &lt;&lt; e
+</span><span class="uncovered1"><a name="line695" /> 695                 else
+</span><span class="uncovered0"><a name="line696" /> 696                     # FIXME: Ugly !
+</span><span class="uncovered1"><a name="line697" /> 697                     raise &quot;Comments out of the document root&quot;
+</span><span class="uncovered0"><a name="line698" /> 698                 end
+</span><span class="marked1"><a name="line699" /> 699             when :processing_instruction
+</span><span class="inferred0"><a name="line700" /> 700                 # FIXME: Real PI node
+</span><span class="marked1"><a name="line701" /> 701                 next unless options[:pi]
+</span><span class="marked0"><a name="line702" /> 702                 e = XML_PI.new(event[1], event[2])
+</span><span class="marked1"><a name="line703" /> 703                 if stack.size &gt; 1 or options[:multiple_roots]
+</span><span class="marked0"><a name="line704" /> 704                     stack[-1] &lt;&lt; e
+</span><span class="uncovered1"><a name="line705" /> 705                 else
+</span><span class="uncovered0"><a name="line706" /> 706                     # FIXME: Ugly !
+</span><span class="uncovered1"><a name="line707" /> 707                     raise &quot;Processing instruction out of the document root&quot;
+</span><span class="uncovered0"><a name="line708" /> 708                 end
+</span><span class="marked1"><a name="line709" /> 709             when :end_document
+</span><span class="marked0"><a name="line710" /> 710                 break
+</span><span class="marked1"><a name="line711" /> 711             when :xmldecl,:start_doctype,:end_doctype,:elementdecl
+</span><span class="uncovered0"><a name="line712" /> 712                 # Positivery ignore
+</span><span class="uncovered1"><a name="line713" /> 713             when :externalentity,:entity,:attlistdecl,:notationdecl
+</span><span class="uncovered0"><a name="line714" /> 714                 # Ignore ???
+</span><span class="uncovered1"><a name="line715" /> 715                 #print &quot;Ignored XML event #{event[0]} when parsing\n&quot;
+</span><span class="uncovered0"><a name="line716" /> 716             else
+</span><span class="uncovered1"><a name="line717" /> 717                 # Huh ? What's that ?
+</span><span class="uncovered0"><a name="line718" /> 718                 #print &quot;Unknown XML event #{event[0]} when parsing\n&quot;
+</span><span class="uncovered1"><a name="line719" /> 719             end
+</span><span class="uncovered0"><a name="line720" /> 720         end
+</span><span class="marked1"><a name="line721" /> 721         roots = stack[0]
+</span><span class="inferred0"><a name="line722" /> 722         
+</span><span class="marked1"><a name="line723" /> 723         roots.each{|root| root.remove_pretty_printing!} if options[:remove_pretty_printing]
+</span><span class="inferred0"><a name="line724" /> 724         # :remove_pretty_printing does :normalize anyway
+</span><span class="marked1"><a name="line725" /> 725         roots.each{|root| root.normalize!} if options[:normalize]
+</span><span class="marked0"><a name="line726" /> 726         if options[:multiple_roots]
+</span><span class="marked1"><a name="line727" /> 727             roots
+</span><span class="inferred0"><a name="line728" /> 728         else
+</span><span class="marked1"><a name="line729" /> 729             roots[0]
+</span><span class="inferred0"><a name="line730" /> 730         end
+</span><span class="inferred1"><a name="line731" /> 731     end
+</span><span class="inferred0"><a name="line732" /> 732 
+</span><span class="inferred1"><a name="line733" /> 733     # Parse a sequence. Equivalent to XML.parse(stream, :multiple_roots =&gt; true).
+</span><span class="marked0"><a name="line734" /> 734     def self.parse_sequence(stream, options={})
+</span><span class="marked1"><a name="line735" /> 735         o = options.dup
+</span><span class="marked0"><a name="line736" /> 736         o[:multiple_roots] = true
+</span><span class="marked1"><a name="line737" /> 737         parse(stream, o)
+</span><span class="inferred0"><a name="line738" /> 738     end
+</span><span class="inferred1"><a name="line739" /> 739 
+</span><span class="inferred0"><a name="line740" /> 740     # Renormalize a string containing XML document
+</span><span class="marked1"><a name="line741" /> 741     def self.renormalize(stream)
+</span><span class="marked0"><a name="line742" /> 742         parse(stream).to_s
+</span><span class="marked1"><a name="line743" /> 743     end
+</span><span class="inferred0"><a name="line744" /> 744 
+</span><span class="inferred1"><a name="line745" /> 745     # Renormalize a string containing a sequence of XML documents
+</span><span class="inferred0"><a name="line746" /> 746     # and strings
+</span><span class="inferred1"><a name="line747" /> 747     # XMLrenormalize_sequence(&quot;&lt;hello   /&gt;, &lt;world&gt;&lt;/world&gt;!&quot;) =&gt;
+</span><span class="inferred0"><a name="line748" /> 748     # &quot;&lt;hello/&gt;, &lt;world/&gt;!&quot;
+</span><span class="marked1"><a name="line749" /> 749     def self.renormalize_sequence(stream)
+</span><span class="marked0"><a name="line750" /> 750         parse_sequence(stream).to_s
+</span><span class="marked1"><a name="line751" /> 751     end
+</span><span class="inferred0"><a name="line752" /> 752 end
+</span><span class="inferred1"><a name="line753" /> 753 
+</span><span class="inferred0"><a name="line754" /> 754 # Instance methods (other than those of Enumerable)
+</span><span class="marked1"><a name="line755" /> 755 class XML
+</span><span class="marked0"><a name="line756" /> 756     attr_accessor :name, :attrs, :contents
+</span><span class="inferred1"><a name="line757" /> 757 
+</span><span class="inferred0"><a name="line758" /> 758     # initialize can be run in many ways
+</span><span class="inferred1"><a name="line759" /> 759     # * XML.new
+</span><span class="inferred0"><a name="line760" /> 760     # * XML.new(:tag_symbol)
+</span><span class="inferred1"><a name="line761" /> 761     # * XML.new(:tag_symbol, {attributes})
+</span><span class="inferred0"><a name="line762" /> 762     # * XML.new(:tag_symbol, &quot;children&quot;, &quot;more&quot;, XML.new(...))
+</span><span class="inferred1"><a name="line763" /> 763     # * XML.new(:tag_symbol, {attributes}, &quot;and&quot;, &quot;children&quot;)
+</span><span class="inferred0"><a name="line764" /> 764     # * XML.new(:tag_symbol) { monadic code }
+</span><span class="inferred1"><a name="line765" /> 765     # * XML.new(:tag_symbol, {attributes}) { monadic code }
+</span><span class="inferred0"><a name="line766" /> 766     #
+</span><span class="inferred1"><a name="line767" /> 767     # Or even:
+</span><span class="inferred0"><a name="line768" /> 768     # * XML.new(:tag_symbol, &quot;children&quot;) { and some monadic code }
+</span><span class="inferred1"><a name="line769" /> 769     # * XML.new(:tag_symbol, {attributes}, &quot;children&quot;) { and some monadic code }
+</span><span class="inferred0"><a name="line770" /> 770     # But typically you won't be mixing these two style
+</span><span class="inferred1"><a name="line771" /> 771     #
+</span><span class="inferred0"><a name="line772" /> 772     # Attribute values can will be converted to strings
+</span><span class="marked1"><a name="line773" /> 773     def initialize(*args, &amp;blk)
+</span><span class="marked0"><a name="line774" /> 774         @name     = nil
+</span><span class="marked1"><a name="line775" /> 775         @attrs    = {}
+</span><span class="marked0"><a name="line776" /> 776         @contents = []
+</span><span class="marked1"><a name="line777" /> 777         @name = args.shift if args.size != 0
+</span><span class="marked0"><a name="line778" /> 778         if args.size != 0 and args[0].is_a? Hash
+</span><span class="marked1"><a name="line779" /> 779             args.shift.each{|k,v|
+</span><span class="inferred0"><a name="line780" /> 780                 # Do automatic conversion here
+</span><span class="inferred1"><a name="line781" /> 781                 # This also assures that the hashes are *not* shared
+</span><span class="marked0"><a name="line782" /> 782                 self[k] = v
+</span><span class="inferred1"><a name="line783" /> 783             }
+</span><span class="inferred0"><a name="line784" /> 784         end
+</span><span class="inferred1"><a name="line785" /> 785         # Expand Arrays passed as arguments
+</span><span class="marked0"><a name="line786" /> 786         self &lt;&lt; args
+</span><span class="inferred1"><a name="line787" /> 787         # FIXME: We'd rather not have people say @name = :foo there :-)
+</span><span class="marked0"><a name="line788" /> 788         if blk
+</span><span class="marked1"><a name="line789" /> 789             instance_eval(&amp;blk)
+</span><span class="inferred0"><a name="line790" /> 790         end
+</span><span class="inferred1"><a name="line791" /> 791     end
+</span><span class="inferred0"><a name="line792" /> 792 
+</span><span class="inferred1"><a name="line793" /> 793     # Convert to a well-formatted XML
+</span><span class="marked0"><a name="line794" /> 794     def to_s
+</span><span class="marked1"><a name="line795" /> 795         &quot;&lt;#{@name}&quot; + @attrs.sort.map{|k,v| &quot; #{k}='#{v.xml_attr_escape}'&quot;}.join +
+</span><span class="marked0"><a name="line796" /> 796         if @contents.size == 0
+</span><span class="marked1"><a name="line797" /> 797             &quot;/&gt;&quot;
+</span><span class="inferred0"><a name="line798" /> 798         else
+</span><span class="marked1"><a name="line799" /> 799             &quot;&gt;&quot; + @contents.map{|x| if x.is_a? String then x.xml_escape else x.to_s end}.join + &quot;&lt;/#{name}&gt;&quot;
+</span><span class="marked0"><a name="line800" /> 800         end
+</span><span class="marked1"><a name="line801" /> 801     end
+</span><span class="inferred0"><a name="line802" /> 802 
+</span><span class="inferred1"><a name="line803" /> 803     # Convert to a well-formatted XML, but without children information.
+</span><span class="inferred0"><a name="line804" /> 804     # This is a reasonable format for irb and debugging.
+</span><span class="inferred1"><a name="line805" /> 805     # If you want to see a few levels of children, call inspect(2) and so on
+</span><span class="marked0"><a name="line806" /> 806     def inspect(include_children=0)
+</span><span class="inferred1"><a name="line807" /> 807         &quot;&lt;#{@name}&quot; + @attrs.sort.map{|k,v| &quot; #{k}='#{v.xml_attr_escape}'&quot;}.join +
+</span><span class="marked0"><a name="line808" /> 808         if @contents.size == 0
+</span><span class="marked1"><a name="line809" /> 809             &quot;/&gt;&quot;
+</span><span class="marked0"><a name="line810" /> 810         elsif include_children == 0
+</span><span class="marked1"><a name="line811" /> 811             &quot;&gt;...&lt;/#{name}&gt;&quot;
+</span><span class="inferred0"><a name="line812" /> 812         else
+</span><span class="marked1"><a name="line813" /> 813             &quot;&gt;&quot; + @contents.map{|x| if x.is_a? String then x.xml_escape else x.inspect(include_children-1) end}.join + &quot;&lt;/#{name}&gt;&quot;
+</span><span class="marked0"><a name="line814" /> 814         end
+</span><span class="marked1"><a name="line815" /> 815     end
+</span><span class="inferred0"><a name="line816" /> 816 
+</span><span class="inferred1"><a name="line817" /> 817     # Read attributes.
+</span><span class="inferred0"><a name="line818" /> 818     # Also works with pseudoattributes:
+</span><span class="inferred1"><a name="line819" /> 819     #  img[:@x] == img.child(:x).text # or nil if there isn't any.
+</span><span class="marked0"><a name="line820" /> 820     def [](key)
+</span><span class="marked1"><a name="line821" /> 821         if key.to_s[0] == ?@
+</span><span class="marked0"><a name="line822" /> 822             tag = key.to_s[1..-1].to_sym
+</span><span class="marked1"><a name="line823" /> 823             c = child(tag)
+</span><span class="marked0"><a name="line824" /> 824             if c
+</span><span class="marked1"><a name="line825" /> 825                 c.text
+</span><span class="inferred0"><a name="line826" /> 826             else
+</span><span class="marked1"><a name="line827" /> 827                 nil
+</span><span class="inferred0"><a name="line828" /> 828             end
+</span><span class="inferred1"><a name="line829" /> 829         else
+</span><span class="marked0"><a name="line830" /> 830             @attrs[key]
+</span><span class="inferred1"><a name="line831" /> 831         end
+</span><span class="marked0"><a name="line832" /> 832     end
+</span><span class="inferred1"><a name="line833" /> 833 
+</span><span class="inferred0"><a name="line834" /> 834     # Set attributes.
+</span><span class="inferred1"><a name="line835" /> 835     # Value is automatically converted to String, so you can say:
+</span><span class="inferred0"><a name="line836" /> 836     #  img[:x] = 200
+</span><span class="inferred1"><a name="line837" /> 837     # Also works with pseudoattributes:
+</span><span class="inferred0"><a name="line838" /> 838     #  foo[:@bar] = &quot;x&quot;
+</span><span class="marked1"><a name="line839" /> 839     def []=(key, value)
+</span><span class="marked0"><a name="line840" /> 840         if key.to_s[0] == ?@
+</span><span class="marked1"><a name="line841" /> 841             tag = key.to_s[1..-1].to_sym
+</span><span class="marked0"><a name="line842" /> 842             c = child(tag)
+</span><span class="marked1"><a name="line843" /> 843             if c
+</span><span class="marked0"><a name="line844" /> 844                 c.contents = [value.to_s]
+</span><span class="inferred1"><a name="line845" /> 845             else
+</span><span class="marked0"><a name="line846" /> 846                 self &lt;&lt; XML.new(tag, value.to_s)
+</span><span class="inferred1"><a name="line847" /> 847             end
+</span><span class="inferred0"><a name="line848" /> 848         else
+</span><span class="marked1"><a name="line849" /> 849             @attrs[key] = value.to_s
+</span><span class="inferred0"><a name="line850" /> 850         end
+</span><span class="marked1"><a name="line851" /> 851     end
+</span><span class="inferred0"><a name="line852" /> 852 
+</span><span class="inferred1"><a name="line853" /> 853     # Add children.
+</span><span class="inferred0"><a name="line854" /> 854     # Possible uses:
+</span><span class="inferred1"><a name="line855" /> 855     # * Add single element
+</span><span class="inferred0"><a name="line856" /> 856     #  self &lt;&lt; xml(...)
+</span><span class="inferred1"><a name="line857" /> 857     #  self &lt;&lt; &quot;foo&quot;
+</span><span class="inferred0"><a name="line858" /> 858     # Add nothing:
+</span><span class="inferred1"><a name="line859" /> 859     #  self &lt;&lt; nil  
+</span><span class="inferred0"><a name="line860" /> 860     # Add multiple elements (also works recursively):
+</span><span class="inferred1"><a name="line861" /> 861     #  self &lt;&lt; [a, b, c] 
+</span><span class="inferred0"><a name="line862" /> 862     #  self &lt;&lt; [a, [b, c], d] 
+</span><span class="marked1"><a name="line863" /> 863     def &lt;&lt;(cnt)
+</span><span class="marked0"><a name="line864" /> 864         if cnt.nil?
+</span><span class="inferred1"><a name="line865" /> 865             # skip
+</span><span class="marked0"><a name="line866" /> 866         elsif cnt.is_a? Array
+</span><span class="marked1"><a name="line867" /> 867             cnt.each{|elem| self &lt;&lt; elem}
+</span><span class="inferred0"><a name="line868" /> 868         else
+</span><span class="marked1"><a name="line869" /> 869             @contents &lt;&lt; cnt
+</span><span class="inferred0"><a name="line870" /> 870         end
+</span><span class="marked1"><a name="line871" /> 871         self
+</span><span class="inferred0"><a name="line872" /> 872     end
+</span><span class="inferred1"><a name="line873" /> 873 
+</span><span class="inferred0"><a name="line874" /> 874     # Equality test, works as if XMLs were normalized, so:
+</span><span class="inferred1"><a name="line875" /> 875     #  XML.new(:foo, &quot;Hello, &quot;, &quot;world&quot;) == XML.new(:foo, &quot;Hello, world&quot;)
+</span><span class="marked0"><a name="line876" /> 876     def ==(x)
+</span><span class="marked1"><a name="line877" /> 877         return false unless x.is_a? XML
+</span><span class="marked0"><a name="line878" /> 878         return false unless name == x.name and attrs == x.attrs
+</span><span class="inferred1"><a name="line879" /> 879         # Now the hard part, strings can be split in different ways
+</span><span class="inferred0"><a name="line880" /> 880         # empty string children are possible etc.
+</span><span class="marked1"><a name="line881" /> 881         self_i = 0
+</span><span class="marked0"><a name="line882" /> 882         othr_i = 0
+</span><span class="marked1"><a name="line883" /> 883         while self_i != contents.size or othr_i != x.contents.size
+</span><span class="inferred0"><a name="line884" /> 884             # Ignore &quot;&quot;s
+</span><span class="marked1"><a name="line885" /> 885             if contents[self_i].is_a? String and contents[self_i] == &quot;&quot;
+</span><span class="marked0"><a name="line886" /> 886                 self_i += 1
+</span><span class="marked1"><a name="line887" /> 887                 next
+</span><span class="inferred0"><a name="line888" /> 888             end
+</span><span class="marked1"><a name="line889" /> 889             if x.contents[othr_i].is_a? String and x.contents[othr_i] == &quot;&quot;
+</span><span class="marked0"><a name="line890" /> 890                 othr_i += 1
+</span><span class="marked1"><a name="line891" /> 891                 next
+</span><span class="inferred0"><a name="line892" /> 892             end
+</span><span class="inferred1"><a name="line893" /> 893 
+</span><span class="inferred0"><a name="line894" /> 894             # If one is finished and the other contains non-empty elements,
+</span><span class="inferred1"><a name="line895" /> 895             # they are not equal
+</span><span class="marked0"><a name="line896" /> 896             return false if self_i == contents.size or othr_i == x.contents.size
+</span><span class="inferred1"><a name="line897" /> 897 
+</span><span class="inferred0"><a name="line898" /> 898             # Are they both Strings ?
+</span><span class="inferred1"><a name="line899" /> 899             # Strings can be divided in different ways, and calling normalize!
+</span><span class="inferred0"><a name="line900" /> 900             # here would be rather expensive, so let's use this complicated
+</span><span class="inferred1"><a name="line901" /> 901             # algorithm
+</span><span class="marked0"><a name="line902" /> 902             if contents[self_i].is_a? String and x.contents[othr_i].is_a? String
+</span><span class="marked1"><a name="line903" /> 903                 a = contents[self_i]
+</span><span class="marked0"><a name="line904" /> 904                 b = x.contents[othr_i]
+</span><span class="marked1"><a name="line905" /> 905                 self_i += 1
+</span><span class="marked0"><a name="line906" /> 906                 othr_i += 1
+</span><span class="marked1"><a name="line907" /> 907                 while a != &quot;&quot; or b != &quot;&quot;
+</span><span class="marked0"><a name="line908" /> 908                     if a == b
+</span><span class="marked1"><a name="line909" /> 909                         a = &quot;&quot;
+</span><span class="marked0"><a name="line910" /> 910                         b = &quot;&quot;
+</span><span class="marked1"><a name="line911" /> 911                     elsif a.size &gt; b.size and a[0, b.size] == b
+</span><span class="marked0"><a name="line912" /> 912                         a = a[b.size..-1]
+</span><span class="marked1"><a name="line913" /> 913                         if x.contents[othr_i].is_a? String
+</span><span class="marked0"><a name="line914" /> 914                             b = x.contents[othr_i]
+</span><span class="marked1"><a name="line915" /> 915                             othr_i += 1
+</span><span class="marked0"><a name="line916" /> 916                             next
+</span><span class="inferred1"><a name="line917" /> 917                         end
+</span><span class="marked0"><a name="line918" /> 918                     elsif b.size &gt; a.size and b[0, a.size] == a
+</span><span class="marked1"><a name="line919" /> 919                         b = b[a.size..-1]
+</span><span class="marked0"><a name="line920" /> 920                         if contents[self_i].is_a? String
+</span><span class="marked1"><a name="line921" /> 921                             a = contents[self_i]
+</span><span class="marked0"><a name="line922" /> 922                             self_i += 1
+</span><span class="marked1"><a name="line923" /> 923                             next
+</span><span class="inferred0"><a name="line924" /> 924                         end
+</span><span class="inferred1"><a name="line925" /> 925                     else
+</span><span class="marked0"><a name="line926" /> 926                         return false
+</span><span class="inferred1"><a name="line927" /> 927                     end
+</span><span class="inferred0"><a name="line928" /> 928                 end
+</span><span class="marked1"><a name="line929" /> 929                 next
+</span><span class="inferred0"><a name="line930" /> 930             end
+</span><span class="inferred1"><a name="line931" /> 931 
+</span><span class="inferred0"><a name="line932" /> 932             # OK, so at least one of them is not a String.
+</span><span class="inferred1"><a name="line933" /> 933             # Hopefully they're either both XMLs or one is an XML and the
+</span><span class="inferred0"><a name="line934" /> 934             # other is a String. It is also possible that contents contains
+</span><span class="inferred1"><a name="line935" /> 935             # something illegal, but we aren't catching that,
+</span><span class="inferred0"><a name="line936" /> 936             # so xml(:foo, Garbage.new) is going to at least equal itself.
+</span><span class="inferred1"><a name="line937" /> 937             # And we aren't, because xml(:foo, Garbage.new) == xml(:bar, Garbage.new)
+</span><span class="inferred0"><a name="line938" /> 938             # is going to return an honest false, and incoherent sanity
+</span><span class="inferred1"><a name="line939" /> 939             # check is worse than no sanity check.
+</span><span class="inferred0"><a name="line940" /> 940             #
+</span><span class="inferred1"><a name="line941" /> 941             # Oh yeah, they can be XML_PI or XML_Comment. In such case, this
+</span><span class="inferred0"><a name="line942" /> 942             # is ok.
+</span><span class="marked1"><a name="line943" /> 943             return false unless contents[self_i] == x.contents[othr_i]
+</span><span class="marked0"><a name="line944" /> 944             self_i += 1
+</span><span class="marked1"><a name="line945" /> 945             othr_i += 1
+</span><span class="inferred0"><a name="line946" /> 946         end
+</span><span class="marked1"><a name="line947" /> 947         return true
+</span><span class="inferred0"><a name="line948" /> 948     end
+</span><span class="inferred1"><a name="line949" /> 949 
+</span><span class="marked0"><a name="line950" /> 950     alias_method :real_method_missing, :method_missing
+</span><span class="inferred1"><a name="line951" /> 951     # Define all foo!-methods for monadic interface, so you can write:
+</span><span class="inferred0"><a name="line952" /> 952     # 
+</span><span class="marked1"><a name="line953" /> 953     def method_missing(meth, *args, &amp;blk) 
+</span><span class="marked0"><a name="line954" /> 954         if meth.to_s =~ /^(.*)!$/
+</span><span class="marked1"><a name="line955" /> 955             self &lt;&lt; XML.new($1.to_sym, *args, &amp;blk)
+</span><span class="inferred0"><a name="line956" /> 956         else
+</span><span class="marked1"><a name="line957" /> 957             real_method_missing(meth, *args, &amp;blk)
+</span><span class="inferred0"><a name="line958" /> 958         end
+</span><span class="inferred1"><a name="line959" /> 959     end
+</span><span class="inferred0"><a name="line960" /> 960 
+</span><span class="inferred1"><a name="line961" /> 961     # Make monadic interface more &quot;official&quot;
+</span><span class="inferred0"><a name="line962" /> 962     # * node.exec! { foo!; bar! }
+</span><span class="inferred1"><a name="line963" /> 963     # is equivalent to
+</span><span class="inferred0"><a name="line964" /> 964     # * node &lt;&lt; xml(:foo) &lt;&lt; xml(:bar)
+</span><span class="marked1"><a name="line965" /> 965     def exec!(&amp;blk)
+</span><span class="marked0"><a name="line966" /> 966         instance_eval(&amp;blk)
+</span><span class="inferred1"><a name="line967" /> 967     end
+</span><span class="inferred0"><a name="line968" /> 968 
+</span><span class="inferred1"><a name="line969" /> 969     # Select a subtree
+</span><span class="inferred0"><a name="line970" /> 970     # NOTE: Uses object_id of the start/end tags !
+</span><span class="inferred1"><a name="line971" /> 971     # They have to be the same, not just identical !
+</span><span class="inferred0"><a name="line972" /> 972     # &lt;foo&gt;0&lt;a&gt;1&lt;/a&gt;&lt;b/&gt;&lt;c/&gt;&lt;d&gt;2&lt;/d&gt;&lt;e/&gt;3&lt;/foo&gt;.range(&lt;a&gt;1&lt;/a&gt;, &lt;d&gt;2&lt;/d&gt;)
+</span><span class="inferred1"><a name="line973" /> 973     # returns
+</span><span class="inferred0"><a name="line974" /> 974     # &lt;foo&gt;&lt;b/&gt;&lt;c/&gt;&lt;/foo&gt;
+</span><span class="inferred1"><a name="line975" /> 975     # start and end and their descendants are not included in
+</span><span class="inferred0"><a name="line976" /> 976     # the result tree.
+</span><span class="inferred1"><a name="line977" /> 977     # Either start or end can be nil.
+</span><span class="inferred0"><a name="line978" /> 978     # * If both start and end are nil, return whole tree.
+</span><span class="inferred1"><a name="line979" /> 979     # * If start is nil, return subtree up to range_end.
+</span><span class="inferred0"><a name="line980" /> 980     # * If start is not inside the tree, return nil.
+</span><span class="inferred1"><a name="line981" /> 981     # * If end is nil, return subtree from start
+</span><span class="inferred0"><a name="line982" /> 982     # * If end is not inside the tree, return subtree from start.
+</span><span class="inferred1"><a name="line983" /> 983     # * If end is before or below start, or they're the same node, the result is unspecified.
+</span><span class="inferred0"><a name="line984" /> 984     # * if end comes directly after start, or as first node when start==nil, return path reaching there.
+</span><span class="marked1"><a name="line985" /> 985     def range(range_start, range_end, end_reached_cb=nil)
+</span><span class="marked0"><a name="line986" /> 986         if range_start == nil
+</span><span class="marked1"><a name="line987" /> 987             result = XML.new(name, attrs)
+</span><span class="inferred0"><a name="line988" /> 988         else
+</span><span class="marked1"><a name="line989" /> 989             result = nil
+</span><span class="inferred0"><a name="line990" /> 990         end
+</span><span class="marked1"><a name="line991" /> 991         @contents.each {|c|
+</span><span class="inferred0"><a name="line992" /> 992             # end reached !
+</span><span class="marked1"><a name="line993" /> 993             if range_end and c.object_id == range_end.object_id
+</span><span class="marked0"><a name="line994" /> 994                 end_reached_cb.call if end_reached_cb
+</span><span class="marked1"><a name="line995" /> 995                 break
+</span><span class="inferred0"><a name="line996" /> 996             end
+</span><span class="inferred1"><a name="line997" /> 997             # start reached !
+</span><span class="marked0"><a name="line998" /> 998             if range_start and c.object_id == range_start.object_id
+</span><span class="marked1"><a name="line999" /> 999                 result = XML.new(name, attrs)
+</span><span class="marked0"><a name="line1000" />1000                 next
+</span><span class="inferred1"><a name="line1001" />1001             end
+</span><span class="marked0"><a name="line1002" />1002             if result # We already started
+</span><span class="marked1"><a name="line1003" />1003                 if c.is_a? XML
+</span><span class="marked0"><a name="line1004" />1004                     break_me = false
+</span><span class="marked1"><a name="line1005" />1005                     result.add! c.range(nil, range_end, lambda{ break_me = true })
+</span><span class="marked0"><a name="line1006" />1006                     if break_me
+</span><span class="marked1"><a name="line1007" />1007                         end_reached_cb.call if end_reached_cb
+</span><span class="marked0"><a name="line1008" />1008                         break
+</span><span class="inferred1"><a name="line1009" />1009                     end
+</span><span class="inferred0"><a name="line1010" />1010                 else # String/XML_PI/XML_Comment
+</span><span class="marked1"><a name="line1011" />1011                     result.add! c
+</span><span class="inferred0"><a name="line1012" />1012                 end
+</span><span class="inferred1"><a name="line1013" />1013             else
+</span><span class="inferred0"><a name="line1014" />1014                 # Strings/XML_PI/XML_Comment obviously cannot start a range
+</span><span class="marked1"><a name="line1015" />1015                 if c.is_a? XML
+</span><span class="marked0"><a name="line1016" />1016                     break_me = false
+</span><span class="marked1"><a name="line1017" />1017                     r = c.range(range_start, range_end, lambda{ break_me = true })
+</span><span class="marked0"><a name="line1018" />1018                     if r
+</span><span class="inferred1"><a name="line1019" />1019                         # start reached !
+</span><span class="marked0"><a name="line1020" />1020                         result = XML.new(name, attrs, r)
+</span><span class="inferred1"><a name="line1021" />1021                     end
+</span><span class="marked0"><a name="line1022" />1022                     if break_me
+</span><span class="inferred1"><a name="line1023" />1023                         # end reached !
+</span><span class="marked0"><a name="line1024" />1024                         end_reached_cb.call if end_reached_cb
+</span><span class="marked1"><a name="line1025" />1025                         break
+</span><span class="inferred0"><a name="line1026" />1026                     end
+</span><span class="inferred1"><a name="line1027" />1027                 end
+</span><span class="inferred0"><a name="line1028" />1028             end
+</span><span class="inferred1"><a name="line1029" />1029         }
+</span><span class="marked0"><a name="line1030" />1030         return result
+</span><span class="inferred1"><a name="line1031" />1031     end
+</span><span class="inferred0"><a name="line1032" />1032 
+</span><span class="inferred1"><a name="line1033" />1033     # XML#subsequence is similar to XML#range, but instead of
+</span><span class="inferred0"><a name="line1034" />1034     # trimmed subtree in returns a list of elements
+</span><span class="inferred1"><a name="line1035" />1035     # The same elements are included in both cases, but here
+</span><span class="inferred0"><a name="line1036" />1036     # we do not include any parents !
+</span><span class="inferred1"><a name="line1037" />1037     #
+</span><span class="inferred0"><a name="line1038" />1038     # &lt;foo&gt;&lt;a/&gt;&lt;b/&gt;&lt;c/&gt;&lt;/foo&gt;.range(a,c) =&gt; &lt;foo&gt;&lt;b/&gt;&lt;/foo&gt;
+</span><span class="inferred1"><a name="line1039" />1039     # &lt;foo&gt;&lt;a/&gt;&lt;b/&gt;&lt;c/&gt;&lt;/foo&gt;.subsequence(a,c) =&gt; &lt;b/&gt;
+</span><span class="inferred0"><a name="line1040" />1040     #
+</span><span class="inferred1"><a name="line1041" />1041     # &lt;foo&gt;&lt;a&gt;&lt;a1/&gt;&lt;/a&gt;&lt;b/&gt;&lt;c/&gt;&lt;/foo&gt;.range(a1,c) =&gt; &lt;foo&gt;&lt;a/&gt;&lt;b/&gt;&lt;/foo&gt; # Does &lt;a/&gt; make sense ?
+</span><span class="inferred0"><a name="line1042" />1042     # &lt;foo&gt;&lt;a&gt;&lt;a1/&gt;&lt;/a&gt;&lt;b/&gt;&lt;c/&gt;&lt;/foo&gt;.subsequence(a1,c) =&gt; &lt;b/&gt;
+</span><span class="inferred1"><a name="line1043" />1043     #
+</span><span class="inferred0"><a name="line1044" />1044     # &lt;foo&gt;&lt;a&gt;&lt;a1/&gt;&lt;a2/&gt;&lt;/a&gt;&lt;b/&gt;&lt;c/&gt;&lt;/foo&gt;.range(a1,c) =&gt; &lt;foo&gt;&lt;a&gt;&lt;a2/&gt;&lt;/a&gt;&lt;b/&gt;&lt;/foo&gt;
+</span><span class="inferred1"><a name="line1045" />1045     # &lt;foo&gt;&lt;a&gt;&lt;a1/&gt;&lt;a2/&gt;&lt;/a&gt;&lt;b/&gt;&lt;c/&gt;&lt;/foo&gt;.subsequence(a1,c) =&gt; &lt;a2/&gt;&lt;b/&gt;
+</span><span class="inferred0"><a name="line1046" />1046     #
+</span><span class="inferred1"><a name="line1047" />1047     # And we return [], not nil if nothing matches
+</span><span class="marked0"><a name="line1048" />1048     def subsequence(range_start, range_end, start_seen_cb=nil, end_seen_cb=nil)
+</span><span class="marked1"><a name="line1049" />1049         result = []
+</span><span class="marked0"><a name="line1050" />1050         start_seen = range_start.nil?
+</span><span class="marked1"><a name="line1051" />1051         @contents.each{|c|
+</span><span class="marked0"><a name="line1052" />1052             if range_end and range_end.object_id == c.object_id
+</span><span class="marked1"><a name="line1053" />1053                 end_seen_cb.call if end_seen_cb
+</span><span class="marked0"><a name="line1054" />1054                 break 
+</span><span class="inferred1"><a name="line1055" />1055             end
+</span><span class="marked0"><a name="line1056" />1056             if range_start and range_start.object_id == c.object_id
+</span><span class="marked1"><a name="line1057" />1057                 start_seen = true
+</span><span class="marked0"><a name="line1058" />1058                 start_seen_cb.call if start_seen_cb
+</span><span class="marked1"><a name="line1059" />1059                 next
+</span><span class="inferred0"><a name="line1060" />1060             end
+</span><span class="marked1"><a name="line1061" />1061             if start_seen
+</span><span class="marked0"><a name="line1062" />1062                 if c.is_a? XML
+</span><span class="marked1"><a name="line1063" />1063                     break_me = false
+</span><span class="marked0"><a name="line1064" />1064                     result += c.subsequence(nil, range_end, nil, lambda{break_me=true})
+</span><span class="marked1"><a name="line1065" />1065                     break if break_me
+</span><span class="inferred0"><a name="line1066" />1066                 else # String/XML_PI/XML_Comment
+</span><span class="marked1"><a name="line1067" />1067                     result &lt;&lt; c
+</span><span class="inferred0"><a name="line1068" />1068                 end
+</span><span class="inferred1"><a name="line1069" />1069             else
+</span><span class="inferred0"><a name="line1070" />1070                 # String/XML_PI/XML_Comment cannot start a subsequence
+</span><span class="marked1"><a name="line1071" />1071                 if c.is_a? XML
+</span><span class="marked0"><a name="line1072" />1072                     break_me = false
+</span><span class="marked1"><a name="line1073" />1073                     result += c.subsequence(range_start, range_end, lambda{start_seen=true}, lambda{break_me=true})
+</span><span class="marked0"><a name="line1074" />1074                     break if break_me
+</span><span class="inferred1"><a name="line1075" />1075                 end
+</span><span class="inferred0"><a name="line1076" />1076             end
+</span><span class="inferred1"><a name="line1077" />1077         }
+</span><span class="inferred0"><a name="line1078" />1078         # Include starting tag if it was right from the range_start
+</span><span class="inferred1"><a name="line1079" />1079         # Otherwise, return just the raw sequence
+</span><span class="marked0"><a name="line1080" />1080         result = [XML.new(@name, @attrs, result)] if range_start == nil
+</span><span class="marked1"><a name="line1081" />1081         return result
+</span><span class="inferred0"><a name="line1082" />1082     end
+</span><span class="inferred1"><a name="line1083" />1083 
+</span><span class="inferred0"><a name="line1084" />1084     # =~ for a few reasonable patterns
+</span><span class="marked1"><a name="line1085" />1085     def =~(pattern)
+</span><span class="marked0"><a name="line1086" />1086         if pattern.is_a? Symbol
+</span><span class="marked1"><a name="line1087" />1087             @name == pattern
+</span><span class="marked0"><a name="line1088" />1088         elsif pattern.is_a? Regexp
+</span><span class="marked1"><a name="line1089" />1089             rv = text =~ pattern
+</span><span class="inferred0"><a name="line1090" />1090         else # Hash, Pattern_any, Pattern_all
+</span><span class="marked1"><a name="line1091" />1091             pattern === self
+</span><span class="inferred0"><a name="line1092" />1092         end
+</span><span class="marked1"><a name="line1093" />1093     end
+</span><span class="inferred0"><a name="line1094" />1094     
+</span><span class="inferred1"><a name="line1095" />1095     # Get rid of pretty-printing whitespace. Also normalizes the XML.
+</span><span class="marked0"><a name="line1096" />1096     def remove_pretty_printing!(exceptions=nil)
+</span><span class="marked1"><a name="line1097" />1097         normalize!
+</span><span class="marked0"><a name="line1098" />1098         real_remove_pretty_printing!(exceptions)
+</span><span class="marked1"><a name="line1099" />1099         normalize!
+</span><span class="inferred0"><a name="line1100" />1100     end
+</span><span class="inferred1"><a name="line1101" />1101 
+</span><span class="inferred0"><a name="line1102" />1102     # normalize! is already recursive, so only one call at top level is needed.
+</span><span class="inferred1"><a name="line1103" />1103     # This helper method lets us avoid extra calls to normalize!.
+</span><span class="marked0"><a name="line1104" />1104     def real_remove_pretty_printing!(exceptions=nil)
+</span><span class="marked1"><a name="line1105" />1105         return if exceptions and exceptions.include? @name
+</span><span class="marked0"><a name="line1106" />1106         each{|c|
+</span><span class="marked1"><a name="line1107" />1107             if c.is_a? String
+</span><span class="marked0"><a name="line1108" />1108                 c.sub!(/^\s+/, &quot;&quot;)
+</span><span class="marked1"><a name="line1109" />1109                 c.sub!(/\s+$/, &quot;&quot;)
+</span><span class="marked0"><a name="line1110" />1110                 c.gsub!(/\s+/, &quot; &quot;)
+</span><span class="marked1"><a name="line1111" />1111             elsif c.is_a? XML_PI or c.is_a? XML_Comment
+</span><span class="inferred0"><a name="line1112" />1112             else
+</span><span class="marked1"><a name="line1113" />1113                 c.real_remove_pretty_printing!(exceptions)
+</span><span class="inferred0"><a name="line1114" />1114             end
+</span><span class="inferred1"><a name="line1115" />1115         }
+</span><span class="inferred0"><a name="line1116" />1116     end
+</span><span class="inferred1"><a name="line1117" />1117 
+</span><span class="marked0"><a name="line1118" />1118     protected :real_remove_pretty_printing!
+</span><span class="inferred1"><a name="line1119" />1119 
+</span><span class="inferred0"><a name="line1120" />1120     # Add pretty-printing whitespace. Also normalizes the XML.
+</span><span class="marked1"><a name="line1121" />1121     def add_pretty_printing!
+</span><span class="marked0"><a name="line1122" />1122         normalize!
+</span><span class="marked1"><a name="line1123" />1123         real_add_pretty_printing!
+</span><span class="marked0"><a name="line1124" />1124         normalize!
+</span><span class="inferred1"><a name="line1125" />1125     end
+</span><span class="inferred0"><a name="line1126" />1126     
+</span><span class="marked1"><a name="line1127" />1127     def real_add_pretty_printing!(indent = &quot;&quot;)
+</span><span class="marked0"><a name="line1128" />1128         return if @contents.empty?
+</span><span class="marked1"><a name="line1129" />1129         each{|c|
+</span><span class="marked0"><a name="line1130" />1130             if c.is_a? XML
+</span><span class="marked1"><a name="line1131" />1131                 c.real_add_pretty_printing!(indent+&quot;  &quot;)
+</span><span class="marked0"><a name="line1132" />1132             elsif c.is_a? String
+</span><span class="marked1"><a name="line1133" />1133                 c.gsub!(/\n\s*/, &quot;\n#{indent}  &quot;)
+</span><span class="inferred0"><a name="line1134" />1134             end
+</span><span class="inferred1"><a name="line1135" />1135         }
+</span><span class="marked0"><a name="line1136" />1136         @contents = @contents.inject([]){|children, c| children + [&quot;\n#{indent}  &quot;, c]}+[&quot;\n#{indent}&quot;]
+</span><span class="inferred1"><a name="line1137" />1137     end
+</span><span class="inferred0"><a name="line1138" />1138 
+</span><span class="marked1"><a name="line1139" />1139     protected :real_add_pretty_printing!
+</span><span class="inferred0"><a name="line1140" />1140 
+</span><span class="marked1"><a name="line1141" />1141     alias_method :raw_dup, :dup
+</span><span class="inferred0"><a name="line1142" />1142     # This is not a trivial method - first it does a *deep* copy,
+</span><span class="inferred1"><a name="line1143" />1143     # second it takes a block which is instance_eval'ed,
+</span><span class="inferred0"><a name="line1144" />1144     # so you can do things like:
+</span><span class="inferred1"><a name="line1145" />1145     # * node.dup{ @name = :foo }
+</span><span class="inferred0"><a name="line1146" />1146     # * node.dup{ self[:color] = &quot;blue&quot; }
+</span><span class="marked1"><a name="line1147" />1147     def dup(&amp;blk)
+</span><span class="marked0"><a name="line1148" />1148         new_obj = self.raw_dup
+</span><span class="inferred1"><a name="line1149" />1149         # Attr values stay shared - ugly
+</span><span class="marked0"><a name="line1150" />1150         new_obj.attrs = new_obj.attrs.dup
+</span><span class="marked1"><a name="line1151" />1151         new_obj.contents = new_obj.contents.map{|c| c.dup}
+</span><span class="inferred0"><a name="line1152" />1152         
+</span><span class="marked1"><a name="line1153" />1153         new_obj.instance_eval(&amp;blk) if blk
+</span><span class="marked0"><a name="line1154" />1154         return new_obj
+</span><span class="inferred1"><a name="line1155" />1155     end
+</span><span class="inferred0"><a name="line1156" />1156 
+</span><span class="inferred1"><a name="line1157" />1157 
+</span><span class="inferred0"><a name="line1158" />1158     # Add some String children (all attributes get to_s'ed)
+</span><span class="marked1"><a name="line1159" />1159     def text!(*args)
+</span><span class="marked0"><a name="line1160" />1160         args.each{|s| self &lt;&lt; s.to_s}
+</span><span class="marked1"><a name="line1161" />1161     end
+</span><span class="inferred0"><a name="line1162" />1162     # Add XML child
+</span><span class="marked1"><a name="line1163" />1163     def xml!(*args, &amp;blk)
+</span><span class="marked0"><a name="line1164" />1164         @contents &lt;&lt; XML.new(*args, &amp;blk)
+</span><span class="inferred1"><a name="line1165" />1165     end
+</span><span class="inferred0"><a name="line1166" />1166 
+</span><span class="marked1"><a name="line1167" />1167     alias_method :add!, :&lt;&lt;
+</span><span class="inferred0"><a name="line1168" />1168     
+</span><span class="inferred1"><a name="line1169" />1169     # Normalization means joining strings
+</span><span class="inferred0"><a name="line1170" />1170     # and getting rid of &quot;&quot;s, recursively
+</span><span class="marked1"><a name="line1171" />1171     def normalize!
+</span><span class="marked0"><a name="line1172" />1172         new_contents = []
+</span><span class="marked1"><a name="line1173" />1173         @contents.each{|c|
+</span><span class="marked0"><a name="line1174" />1174             if c.is_a? String
+</span><span class="marked1"><a name="line1175" />1175                 next if c == &quot;&quot;
+</span><span class="marked0"><a name="line1176" />1176                 if new_contents[-1].is_a? String
+</span><span class="marked1"><a name="line1177" />1177                     new_contents[-1] += c
+</span><span class="marked0"><a name="line1178" />1178                     next
+</span><span class="inferred1"><a name="line1179" />1179                 end
+</span><span class="inferred0"><a name="line1180" />1180             else
+</span><span class="marked1"><a name="line1181" />1181                 c.normalize!
+</span><span class="inferred0"><a name="line1182" />1182             end
+</span><span class="marked1"><a name="line1183" />1183             new_contents.push c
+</span><span class="inferred0"><a name="line1184" />1184         }
+</span><span class="marked1"><a name="line1185" />1185         @contents = new_contents
+</span><span class="inferred0"><a name="line1186" />1186     end
+</span><span class="inferred1"><a name="line1187" />1187 
+</span><span class="inferred0"><a name="line1188" />1188     # Return text below the node, stripping all XML tags,
+</span><span class="inferred1"><a name="line1189" />1189     # &quot;&lt;foo&gt;Hello, &lt;bar&gt;world&lt;/bar&gt;!&lt;/foo&gt;&quot;.xml_parse.text
+</span><span class="inferred0"><a name="line1190" />1190     # returns &quot;Hello, world!&quot;
+</span><span class="marked1"><a name="line1191" />1191     def text
+</span><span class="marked0"><a name="line1192" />1192         res = &quot;&quot;
+</span><span class="marked1"><a name="line1193" />1193         @contents.each{|c|
+</span><span class="marked0"><a name="line1194" />1194             if c.is_a? XML
+</span><span class="marked1"><a name="line1195" />1195                 res &lt;&lt; c.text
+</span><span class="marked0"><a name="line1196" />1196             elsif c.is_a? String
+</span><span class="marked1"><a name="line1197" />1197                 res &lt;&lt; c
+</span><span class="inferred0"><a name="line1198" />1198             end # Ignore XML_PI/XML_Comment
+</span><span class="inferred1"><a name="line1199" />1199         }
+</span><span class="marked0"><a name="line1200" />1200         res
+</span><span class="inferred1"><a name="line1201" />1201     end
+</span><span class="inferred0"><a name="line1202" />1202 
+</span><span class="inferred1"><a name="line1203" />1203     # Equivalent to node.children(pat, *rest)[0]
+</span><span class="inferred0"><a name="line1204" />1204     # Returns nil if there aren't any matching children
+</span><span class="marked1"><a name="line1205" />1205     def child(pat=nil, *rest)
+</span><span class="marked0"><a name="line1206" />1206         children(pat, *rest) {|c|
+</span><span class="marked1"><a name="line1207" />1207             return c
+</span><span class="inferred0"><a name="line1208" />1208         }
+</span><span class="marked1"><a name="line1209" />1209         return nil
+</span><span class="inferred0"><a name="line1210" />1210     end
+</span><span class="inferred1"><a name="line1211" />1211 
+</span><span class="inferred0"><a name="line1212" />1212     # Equivalent to node.descendants(pat, *rest)[0]
+</span><span class="inferred1"><a name="line1213" />1213     # Returns nil if there aren't any matching descendants
+</span><span class="marked0"><a name="line1214" />1214     def descendant(pat=nil, *rest)
+</span><span class="marked1"><a name="line1215" />1215         descendants(pat, *rest) {|c|
+</span><span class="marked0"><a name="line1216" />1216             return c
+</span><span class="inferred1"><a name="line1217" />1217         }
+</span><span class="marked0"><a name="line1218" />1218         return nil
+</span><span class="inferred1"><a name="line1219" />1219     end
+</span><span class="inferred0"><a name="line1220" />1220 
+</span><span class="inferred1"><a name="line1221" />1221     # XML#children(pattern, more_patterns)
+</span><span class="inferred0"><a name="line1222" />1222     # Return all children of a node with tags matching tag.
+</span><span class="inferred1"><a name="line1223" />1223     # Also:
+</span><span class="inferred0"><a name="line1224" />1224     # * children(:a, :b) == children(:a).children(:b)
+</span><span class="inferred1"><a name="line1225" />1225     # * children(:a, :*, :c) == children(:a).descendants(:c)
+</span><span class="marked0"><a name="line1226" />1226     def children(pat=nil, *rest, &amp;blk)
+</span><span class="marked1"><a name="line1227" />1227         return descendants(*rest, &amp;blk) if pat == :*
+</span><span class="marked0"><a name="line1228" />1228         res = []
+</span><span class="marked1"><a name="line1229" />1229         @contents.each{|c|
+</span><span class="marked0"><a name="line1230" />1230             if pat.nil? or pat === c
+</span><span class="marked1"><a name="line1231" />1231                 if rest == []
+</span><span class="marked0"><a name="line1232" />1232                     res &lt;&lt; c
+</span><span class="marked1"><a name="line1233" />1233                     yield c if block_given?
+</span><span class="inferred0"><a name="line1234" />1234                 else
+</span><span class="marked1"><a name="line1235" />1235                     res += c.children(*rest, &amp;blk)
+</span><span class="inferred0"><a name="line1236" />1236                 end
+</span><span class="inferred1"><a name="line1237" />1237             end
+</span><span class="inferred0"><a name="line1238" />1238         }
+</span><span class="marked1"><a name="line1239" />1239         res
+</span><span class="inferred0"><a name="line1240" />1240     end
+</span><span class="inferred1"><a name="line1241" />1241     
+</span><span class="inferred0"><a name="line1242" />1242     # * XML#descendants
+</span><span class="inferred1"><a name="line1243" />1243     # * XML#descendants(pattern)
+</span><span class="inferred0"><a name="line1244" />1244     # * XML#descendants(pattern, more_patterns)
+</span><span class="inferred1"><a name="line1245" />1245     #
+</span><span class="inferred0"><a name="line1246" />1246     # Return all descendants of a node matching the pattern.
+</span><span class="inferred1"><a name="line1247" />1247     # If pattern==nil, simply return all descendants.
+</span><span class="inferred0"><a name="line1248" />1248     # Optionally run a block on each of them if a block was given.
+</span><span class="inferred1"><a name="line1249" />1249     # If pattern==nil, also match Strings !
+</span><span class="marked0"><a name="line1250" />1250     def descendants(pat=nil, *rest, &amp;blk)
+</span><span class="marked1"><a name="line1251" />1251         res = []
+</span><span class="marked0"><a name="line1252" />1252         @contents.each{|c|
+</span><span class="marked1"><a name="line1253" />1253             if pat.nil? or pat === c
+</span><span class="marked0"><a name="line1254" />1254                 if rest == []
+</span><span class="marked1"><a name="line1255" />1255                     res &lt;&lt; c
+</span><span class="marked0"><a name="line1256" />1256                     yield c if block_given?
+</span><span class="inferred1"><a name="line1257" />1257                 else
+</span><span class="marked0"><a name="line1258" />1258                     res += c.children(*rest, &amp;blk)
+</span><span class="inferred1"><a name="line1259" />1259                 end
+</span><span class="inferred0"><a name="line1260" />1260             end
+</span><span class="marked1"><a name="line1261" />1261             if c.is_a? XML
+</span><span class="marked0"><a name="line1262" />1262                 res += c.descendants(pat, *rest, &amp;blk)
+</span><span class="inferred1"><a name="line1263" />1263             end
+</span><span class="inferred0"><a name="line1264" />1264         }
+</span><span class="marked1"><a name="line1265" />1265         res
+</span><span class="inferred0"><a name="line1266" />1266     end
+</span><span class="inferred1"><a name="line1267" />1267     
+</span><span class="inferred0"><a name="line1268" />1268     # Change elements based on pattern
+</span><span class="marked1"><a name="line1269" />1269     def deep_map(pat, &amp;blk)
+</span><span class="marked0"><a name="line1270" />1270         if self =~ pat
+</span><span class="marked1"><a name="line1271" />1271             yield self
+</span><span class="inferred0"><a name="line1272" />1272         else
+</span><span class="marked1"><a name="line1273" />1273             r = XML.new(self.name, self.attrs)
+</span><span class="marked0"><a name="line1274" />1274             each{|c|
+</span><span class="marked1"><a name="line1275" />1275                 if c.is_a? XML
+</span><span class="marked0"><a name="line1276" />1276                     r &lt;&lt; c.deep_map(pat, &amp;blk)
+</span><span class="inferred1"><a name="line1277" />1277                 else
+</span><span class="marked0"><a name="line1278" />1278                     r &lt;&lt; c
+</span><span class="inferred1"><a name="line1279" />1279                 end
+</span><span class="inferred0"><a name="line1280" />1280             }
+</span><span class="marked1"><a name="line1281" />1281             r
+</span><span class="inferred0"><a name="line1282" />1282         end
+</span><span class="inferred1"><a name="line1283" />1283     end
+</span><span class="inferred0"><a name="line1284" />1284 
+</span><span class="inferred1"><a name="line1285" />1285     # FIXME: do we want a shallow or a deep copy here ?
+</span><span class="inferred0"><a name="line1286" />1286     # Map children, but leave the name/attributes
+</span><span class="marked1"><a name="line1287" />1287     def map(pat=nil)
+</span><span class="marked0"><a name="line1288" />1288         r = XML.new(self.name, self.attrs)
+</span><span class="marked1"><a name="line1289" />1289         each{|c|
+</span><span class="marked0"><a name="line1290" />1290             if !pat || c =~ pat
+</span><span class="marked1"><a name="line1291" />1291                 r &lt;&lt; yield(c)
+</span><span class="inferred0"><a name="line1292" />1292             else
+</span><span class="marked1"><a name="line1293" />1293                 r &lt;&lt; c
+</span><span class="inferred0"><a name="line1294" />1294             end
+</span><span class="inferred1"><a name="line1295" />1295         }
+</span><span class="marked0"><a name="line1296" />1296         r
+</span><span class="inferred1"><a name="line1297" />1297     end
+</span><span class="inferred0"><a name="line1298" />1298 end
+</span><span class="inferred1"><a name="line1299" />1299 
+</span><span class="inferred0"><a name="line1300" />1300 # FIXME: Is this even sane ?
+</span><span class="inferred1"><a name="line1301" />1301 # * What about escaping and all that stuff ?
+</span><span class="inferred0"><a name="line1302" />1302 # * Rest of the code assumes that everything is either XML or String
+</span><span class="marked1"><a name="line1303" />1303 class XML_PI
+</span><span class="marked0"><a name="line1304" />1304     def initialize(c, t)
+</span><span class="marked1"><a name="line1305" />1305         @c = c
+</span><span class="marked0"><a name="line1306" />1306         @t = t
+</span><span class="inferred1"><a name="line1307" />1307     end
+</span><span class="marked0"><a name="line1308" />1308     def to_s
+</span><span class="marked1"><a name="line1309" />1309         &quot;&lt;?#{@c}#{@t}?&gt;&quot;
+</span><span class="marked0"><a name="line1310" />1310     end
+</span><span class="inferred1"><a name="line1311" />1311 end
+</span><span class="inferred0"><a name="line1312" />1312 
+</span><span class="inferred1"><a name="line1313" />1313 # FIXME: Is this even sane ?
+</span><span class="inferred0"><a name="line1314" />1314 # * What about escaping and all that stuff ?
+</span><span class="inferred1"><a name="line1315" />1315 # * Rest of the code assumes that everything is either XML or String
+</span><span class="inferred0"><a name="line1316" />1316 # * There are some limitations on where one can put -s in the comment. Do not overdo.
+</span><span class="marked1"><a name="line1317" />1317 class XML_Comment
+</span><span class="marked0"><a name="line1318" />1318     def initialize(c)
+</span><span class="marked1"><a name="line1319" />1319         @c = c
+</span><span class="marked0"><a name="line1320" />1320     end
+</span><span class="marked1"><a name="line1321" />1321     def to_s
+</span><span class="marked0"><a name="line1322" />1322         &quot;&lt;!--#{@c}--&gt;&quot;
+</span><span class="marked1"><a name="line1323" />1323     end
+</span><span class="inferred0"><a name="line1324" />1324 end
+</span><span class="inferred1"><a name="line1325" />1325 
+</span><span class="inferred0"><a name="line1326" />1326 # Syntactic sugar for XML.new
+</span><span class="marked1"><a name="line1327" />1327 def xml(*args, &amp;blk)
+</span><span class="marked0"><a name="line1328" />1328     XML.new(*args, &amp;blk)
+</span><span class="inferred1"><a name="line1329" />1329 end
+</span><span class="inferred0"><a name="line1330" />1330 
+</span><span class="inferred1"><a name="line1331" />1331 # xml! in XML { ... } - context adds node to parent
+</span><span class="inferred0"><a name="line1332" />1332 # xml! in main context prints the argument (and returns it anyway)
+</span><span class="marked1"><a name="line1333" />1333 def xml!(*args, &amp;blk)
+</span><span class="marked0"><a name="line1334" />1334     node = xml(*args, &amp;blk)
+</span><span class="marked1"><a name="line1335" />1335     print node
+</span><span class="marked0"><a name="line1336" />1336     node
+</span><span class="inferred1"><a name="line1337" />1337 end
+</span><span class="inferred0"><a name="line1338" />1338 
+</span><span class="inferred1"><a name="line1339" />1339 # Perl 6 is supposed to have native support for something like that.
+</span><span class="inferred0"><a name="line1340" />1340 # Constructor takes multiple patterns. The object matches if they all match.
+</span><span class="inferred1"><a name="line1341" />1341 #
+</span><span class="inferred0"><a name="line1342" />1342 # Usage:
+</span><span class="inferred1"><a name="line1343" />1343 #  case foo
+</span><span class="inferred0"><a name="line1344" />1344 #  when all(:foo, {:color =&gt; 'blue'}, /Hello/)
+</span><span class="inferred1"><a name="line1345" />1345 #       print foo
+</span><span class="inferred0"><a name="line1346" />1346 #  end
+</span><span class="marked1"><a name="line1347" />1347 class Patterns_all
+</span><span class="marked0"><a name="line1348" />1348     def initialize(*patterns)
+</span><span class="marked1"><a name="line1349" />1349         @patterns = patterns
+</span><span class="marked0"><a name="line1350" />1350     end
+</span><span class="marked1"><a name="line1351" />1351     def ===(obj)
+</span><span class="marked0"><a name="line1352" />1352         @patterns.all?{|p| p === obj}
+</span><span class="marked1"><a name="line1353" />1353     end
+</span><span class="inferred0"><a name="line1354" />1354 end
+</span><span class="inferred1"><a name="line1355" />1355 
+</span><span class="marked0"><a name="line1356" />1356 def all(*patterns)
+</span><span class="marked1"><a name="line1357" />1357     Patterns_all.new(*patterns)
+</span><span class="marked0"><a name="line1358" />1358 end
+</span><span class="inferred1"><a name="line1359" />1359 
+</span><span class="inferred0"><a name="line1360" />1360 # Perl 6 is supposed to have native support for something like that.
+</span><span class="inferred1"><a name="line1361" />1361 # Constructor takes multiple patterns. The object matches if they all match.
+</span><span class="inferred0"><a name="line1362" />1362 #
+</span><span class="inferred1"><a name="line1363" />1363 # Usage:
+</span><span class="inferred0"><a name="line1364" />1364 #  case foo
+</span><span class="inferred1"><a name="line1365" />1365 #  when all(:foo, any({:color =&gt; 'blue'}, {:color =&gt; 'red'}), /Hello/)
+</span><span class="inferred0"><a name="line1366" />1366 #       print foo
+</span><span class="inferred1"><a name="line1367" />1367 #  end
+</span><span class="marked0"><a name="line1368" />1368 class Patterns_any
+</span><span class="marked1"><a name="line1369" />1369     def initialize(*patterns)
+</span><span class="marked0"><a name="line1370" />1370         @patterns = patterns
+</span><span class="marked1"><a name="line1371" />1371     end
+</span><span class="marked0"><a name="line1372" />1372     def ===(obj)
+</span><span class="marked1"><a name="line1373" />1373         @patterns.any?{|p| p === obj}
+</span><span class="marked0"><a name="line1374" />1374     end
+</span><span class="inferred1"><a name="line1375" />1375 end
+</span><span class="inferred0"><a name="line1376" />1376 
+</span><span class="marked1"><a name="line1377" />1377 def any(*patterns)
+</span><span class="marked0"><a name="line1378" />1378     Patterns_any.new(*patterns)
+</span><span class="marked1"><a name="line1379" />1379 end
+</span></pre><hr />    <p>Generated using the <a href='http://eigenclass.org/hiki.rb?rcov'>rcov code coverage analysis tool for Ruby</a> version 0.8.0.</p><p>
+          <a href='http://validator.w3.org/check/referer'>
+            <img src='http://www.w3.org/Icons/valid-xhtml10' height='31' alt='Valid XHTML 1.0!' width='88' />
+          </a>
+          <a href='http://jigsaw.w3.org/css-validator/check/referer'>
+            <img src='http://jigsaw.w3.org/css-validator/images/vcss' alt='Valid CSS!' style='border:0;width:88px;height:31px' />
+          </a>
+        </p>
+      </body>
+    </html>

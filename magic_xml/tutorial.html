@@ -1,0 +1,325 @@
+<html>
+<head><title>magic/xml tutorial</title><style type='text/css'>
+.CodeRay {
+  background-color: #f8f8f8;
+  border: 1px solid silver;
+  font-family: 'Courier New', 'Terminal', monospace;
+  color: #100;
+}
+.CodeRay pre { margin: 0px }
+
+div.CodeRay { }
+
+span.CodeRay { white-space: pre; border: 0px; padding: 2px }
+
+table.CodeRay { border-collapse: collapse; width: 100%; padding: 2px }
+table.CodeRay td { padding: 2px 4px; vertical-align: top }
+
+.CodeRay .line_numbers, .CodeRay .no {
+  background-color: #def;
+  color: gray;
+  text-align: right;
+}
+.CodeRay .line_numbers tt { font-weight: bold }
+.CodeRay .no { padding: 0px 4px }
+.CodeRay .code { width: 100% }
+
+ol.CodeRay { font-size: 10pt }
+ol.CodeRay li { white-space: pre }
+
+.CodeRay .code pre { overflow: auto }
+
+.CodeRay .af { color:#00C }
+.CodeRay .an { color:#007 }
+.CodeRay .av { color:#700 }
+.CodeRay .aw { color:#C00 }
+.CodeRay .bi { color:#509; font-weight:bold }
+.CodeRay .c  { color:#888 }
+
+.CodeRay .ch { color:#04D }
+.CodeRay .ch .k { color:#04D }
+.CodeRay .ch .dl { color:#039 }
+
+.CodeRay .cl { color:#B06; font-weight:bold }
+.CodeRay .co { color:#036; font-weight:bold }
+.CodeRay .cr { color:#0A0 }
+.CodeRay .cv { color:#369 }
+.CodeRay .df { color:#099; font-weight:bold }
+.CodeRay .di { color:#088; font-weight:bold }
+.CodeRay .dl { color:black }
+.CodeRay .do { color:#970 }
+.CodeRay .ds { color:#D42; font-weight:bold }
+.CodeRay .e  { color:#666; font-weight:bold }
+.CodeRay .en { color:#800; font-weight:bold }
+.CodeRay .er { color:#F00; background-color:#FAA }
+.CodeRay .ex { color:#F00; font-weight:bold }
+.CodeRay .fl { color:#60E; font-weight:bold }
+.CodeRay .fu { color:#06B; font-weight:bold }
+.CodeRay .gv { color:#d70; font-weight:bold }
+.CodeRay .hx { color:#058; font-weight:bold }
+.CodeRay .i  { color:#00D; font-weight:bold }
+.CodeRay .ic { color:#B44; font-weight:bold }
+
+.CodeRay .il { background: #eee }
+.CodeRay .il .il { background: #ddd }
+.CodeRay .il .il .il { background: #ccc }
+.CodeRay .il .idl { font-weight: bold; color: #888 }
+
+.CodeRay .in { color:#B2B; font-weight:bold }
+.CodeRay .iv { color:#33B }
+.CodeRay .la { color:#970; font-weight:bold }
+.CodeRay .lv { color:#963 }
+.CodeRay .oc { color:#40E; font-weight:bold }
+.CodeRay .on { color:#000; font-weight:bold }
+.CodeRay .op { }
+.CodeRay .pc { color:#038; font-weight:bold }
+.CodeRay .pd { color:#369; font-weight:bold }
+.CodeRay .pp { color:#579 }
+.CodeRay .pt { color:#339; font-weight:bold }
+.CodeRay .r  { color:#080; font-weight:bold }
+
+.CodeRay .rx { background-color:#fff0ff }
+.CodeRay .rx .k { color:#808 }
+.CodeRay .rx .dl { color:#404 }
+.CodeRay .rx .mod { color:#C2C }
+.CodeRay .rx .fu  { color:#404; font-weight: bold }
+
+.CodeRay .s  { background-color:#fff0f0 }
+.CodeRay .s  .s { background-color:#ffe0e0 }
+.CodeRay .s  .s  .s { background-color:#ffd0d0 }
+.CodeRay .s  .k { color:#D20 }
+.CodeRay .s  .dl { color:#710 }
+
+.CodeRay .sh { background-color:#f0fff0 }
+.CodeRay .sh .k { color:#2B2 }
+.CodeRay .sh .dl { color:#161 }
+
+.CodeRay .sy { color:#A60 }
+.CodeRay .sy .k { color:#A60 }
+.CodeRay .sy .dl { color:#630 }
+
+.CodeRay .ta { color:#070 }
+.CodeRay .tf { color:#070; font-weight:bold }
+.CodeRay .ts { color:#D70; font-weight:bold }
+.CodeRay .ty { color:#339; font-weight:bold }
+.CodeRay .v  { color:#036 }
+.CodeRay .xt { color:#444 }
+
+  </style></head>
+<body>
+<p>magic/xml aims at being the most powerful XML processing solution for Ruby ever.
+It wants to solve all your XML generation, XML analysis, XML transformation problems,
+with easy things being <b>really easy</b>, and who cares about the rest anyway.</p>
+<p>The tutorial describes only the basics of magic/xml. It contains a lot more
+power than that - if you don't know whether it supports something, just try -
+more often than not it will do what you meant !</p>
+<h3>Introduction</h3>
+<p>The basic objects you will be working with are <code>XML</code> and <code>String</code>
+objects. An <code>XML</code> object has a <code>name</code> (like <code>:h3</code>,
+<code>:body</code>, or <code>:comments</code>), a hash table <code>attrs</code>
+containing attributes (like <code>:href</code> being <code>"http://en.wikipedia.org/"</code>),
+and <code>contents</code> - an array of <code>XML</code> and <code>String</code> children.</p>
+<p>XML objects do not know anything about their parents. In particular they do not
+belong to any "Document". We avoid plenty of complexity this way.
+How to build an XML object ? It's easy:</p>
+<div class='CodeRay'>
+  <div class='code'><pre>hello = <span class='co'>XML</span>.parse(<span class='s'><span class='dl'>"</span><span class='k'>&lt;hello&gt;world!&lt;/hello&gt;</span><span class='dl'>"</span></span>)</pre></div>
+</div>
+<p>And <code>hello</code> object will be an <code>XML</code> with <code>name = :hello</code>,
+no attributes and a single child <code>world!</code>.</p>
+<p>You can also load them from a file or from the Internet:</p>
+<div class='CodeRay'>
+  <div class='code'><pre>hello = <span class='co'>XML</span>.load(<span class='s'><span class='dl'>"</span><span class='k'>test.xml</span><span class='dl'>"</span></span>)
+xml_from_internet = <span class='co'>XML</span>.load(<span class='s'><span class='dl'>"</span><span class='k'>http://t-a-w.blogspot.com/atom.xml</span><span class='dl'>"</span></span>)</pre></div>
+</div>
+<p>Or you can create XML objects on your own (more on that later):</p>
+<div class='CodeRay'>
+  <div class='code'><pre>hello = <span class='co'>XML</span>.new(<span class='sy'>:hello</span>, <span class='s'><span class='dl'>"</span><span class='k'>world!</span><span class='dl'>"</span></span>)</pre></div>
+</div>
+<p>How about printing your XMLs ? There couldn't be anything simpler than that.
+You simply say:</p>
+<div class='CodeRay'>
+  <div class='code'><pre>print xml_object <span class='c'># &lt;hello&gt;world!&lt;/hello&gt;</span></pre></div>
+</div>
+<p>If you want to inspect an XML object, just <code>p</code> it.
+It does the right thing - namely prints name and attribute and hides the children if any.</p>
+<div class='CodeRay'>
+  <div class='code'><pre>p xml_object <span class='c'># &lt;hello&gt;...&lt;/hello&gt;</span></pre></div>
+</div>
+<h3>Building XML objects</h3>
+<p>magic/xml is a "There's more than one way to do it" kind of library,
+especially as far as building XML objects is concerned.
+One way to build XML objects is using object-oriented interface:</p>
+<div class='CodeRay'>
+  <div class='code'><pre>foo = <span class='co'>XML</span>.new(<span class='sy'>:foo</span>, {<span class='sy'>:color</span> =&gt; <span class='s'><span class='dl'>"</span><span class='k'>blue</span><span class='dl'>"</span></span>}, <span class='s'><span class='dl'>"</span><span class='k'>Hello</span><span class='dl'>"</span></span>)
+print foo <span class='c'># &lt;foo color='blue'&gt;Hello&lt;/foo&gt;</span></pre></div>
+</div>
+<p>The first argument to the constructor is a tag name,
+the optional second argument is a hash with attributes,
+the rest are object's children. Because it's so common,
+magic/xml also provides <code>xml</code> method which simply calls
+<code>XML.new</code></p>
+<div class='CodeRay'>
+  <div class='code'><pre>print xml(<span class='sy'>:hello</span>, <span class='s'><span class='dl'>"</span><span class='k'>world</span><span class='dl'>"</span></span>) <span class='c'># &lt;hello&gt;world&lt;/hello&gt;</span></pre></div>
+</div>
+<p>The <code>XML</code> objects can be freely modified, using the usual methods.</p>
+<div class='CodeRay'>
+  <div class='code'><pre>node = xml(<span class='sy'>:hello</span>)
+node[<span class='sy'>:color</span>] = <span class='s'><span class='dl'>"</span><span class='k'>blue</span><span class='dl'>"</span></span> <span class='c'># Change attributens</span>
+node &lt;&lt; xml(<span class='sy'>:world</span>) <span class='c'># Add a new child (at the end)</span>
+print node <span class='c'># &lt;hello color='blue'&gt;&lt;world/&gt;&lt;/hello&gt;</span></pre></div>
+</div>
+<p>Of course magic/xml wouldn't be a Ruby library unless if the constructor didn't accept
+block arguments.</p>
+<div class='CodeRay'>
+  <div class='code'><pre>node = xml(<span class='sy'>:html</span>) {
+    add! xml(<span class='sy'>:head</span>) {
+        add! xml(<span class='sy'>:title</span>, <span class='s'><span class='dl'>"</span><span class='k'>Hello world in HTML</span><span class='dl'>"</span></span>)
+    }
+    add! xml(<span class='sy'>:body</span>) {
+        add! xml(<span class='sy'>:h3</span>) {
+            add! <span class='s'><span class='dl'>"</span><span class='k'>Hello, world</span><span class='dl'>"</span></span>
+        }
+    }
+}</pre></div>
+</div>
+<p>The blocks are <code>instance-eval</code>'ed, so special commands like <code>add!</code>
+modify the objects we're building. The example above obviously builds a hello world XHTML document.
+All unknown !-commands are automatically converted to <code>add! xml</code>, so you can also
+code the last example as:</p>
+<div class='CodeRay'>
+  <div class='code'><pre>node = xml(<span class='sy'>:html</span>) {
+    head! {
+        title! <span class='s'><span class='dl'>"</span><span class='k'>Hello world in HTML</span><span class='dl'>"</span></span>
+    }
+    body! {
+        h3! <span class='s'><span class='dl'>"</span><span class='k'>Hello, world</span><span class='dl'>"</span></span>
+    }
+}</pre></div>
+</div>
+<p>Can you imagine easier way to do it ? The only irregularity is that you cannot build the top element
+with <code>html!</code> - we don't want to take over all !-commands everywhere in the program.</p>
+
+<p>It is easy to create your own functions that build XMLs from templates. For example a simple
+function that builds a simple website can be:</p>
+
+<div class='CodeRay'>
+  <div class='code'><pre><span class='r'>def</span> <span class='fu'>build_html</span>(title, body)
+    xml(<span class='sy'>:html</span>) {
+        head! {
+            title! title
+        }
+        body! {
+            add! body
+        }
+    }
+<span class='r'>end</span></pre></div>
+</div>
+<p>As <code>add!</code> command (and its equivalent <code>&lt;&lt;</code>) accepts
+<code>String</code>s, <code>XML</code>s, and <code>Array</code>s of children,
+it is very easy to do the right thing.</p>
+<p>If you want to make an XML-building function that accepts a block,
+you must use <code>instance_eval</code>, otherwise special commands like <code>add!</code>
+will not work inside the block.</p>
+<div class='CodeRay'>
+  <div class='code'><pre><span class='r'>def</span> <span class='fu'>build_html</span>(title, &amp;block)
+    xml(<span class='sy'>:html</span>) {
+        head! {
+            title! title
+        }
+        body! {
+            instance_eval(block)
+        }
+    }
+<span class='r'>end</span></pre></div>
+</div>
+<p>Or you can also parse a <code>String</code> or a <code>File</code> object:</p>
+<div class='CodeRay'>
+  <div class='code'><pre>doc = <span class='co'>XML</span>.parse(<span class='s'><span class='dl'>"</span><span class='k'>&lt;hello&gt;world&lt;/hello&gt;</span><span class='dl'>"</span></span>)
+doc = <span class='co'>XML</span>.parse(<span class='co'>STDIN</span>)</pre></div>
+</div>
+<h3>Analyzing XML objects</h3>
+<p>Of course we want to do more with XMLs than just building them and
+printing them out. Let's load some interesting document first,
+like <a href='http://web2.reddit.com/browse.rss?t=all&amp;s=highscore'>Reddit RSS feed for Web 2.0</a>:</p>
+<div class='CodeRay'>
+  <div class='code'><pre>feed = <span class='co'>XML</span>.load(<span class='s'><span class='dl'>"</span><span class='k'>http://web2.reddit.com/browse.rss?t=all&amp;s=highscore</span><span class='dl'>"</span></span>)</pre></div>
+</div>
+<p>Now let's find all <code>item</code> objects inside the feed, and print their titles and links.</p>
+<div class='CodeRay'>
+  <div class='code'><pre>items = feed.descendants(<span class='sy'>:item</span>)
+items.each{|item|
+    title_node = item.child(<span class='sy'>:title</span>)
+    link_node = item.child(<span class='sy'>:link</span>)
+    print title_node.text, <span class='s'><span class='dl'>"</span><span class='k'> - </span><span class='dl'>"</span></span>, link_node.text, <span class='s'><span class='dl'>"</span><span class='ch'>\n</span><span class='dl'>"</span></span>
+}</pre></div>
+</div>
+<p>This is ugly. And why does RSS even uses those elements:</p>
+<div class='CodeRay'>
+  <div class='code'><pre><span class='ta'>&lt;item&gt;</span>
+<span class='ta'>&lt;title&gt;</span>reddit<span class='ta'>&lt;/title&gt;</span>
+<span class='ta'>&lt;link&gt;</span>http://web2.reddit.com/goto?rss=true<span class='en'>&amp;amp;</span>id=4v0s<span class='ta'>&lt;/link&gt;</span>
+<span class='ta'>&lt;/item&gt;</span></pre></div>
+</div>
+<p>instead of real attributes:</p>
+<div class='CodeRay'>
+  <div class='code'><pre><span class='ta'>&lt;item</span> <span class='an'>title</span>=<span class='s'><span class='dl'>"</span><span class='k'>reddit</span><span class='dl'>"</span></span> <span class='an'>link</span>=<span class='s'><span class='dl'>"</span><span class='k'>http://web2.reddit.com/goto?rss=true</span><span class='en'>&amp;amp;</span><span class='k'>id=4v0s</span><span class='dl'>"</span></span> <span class='ta'>/&gt;</span></pre></div>
+</div>
+<p>Well, it does, and many other XMLs do, but magic/xml lets you pretend they are real attributes</p>
+<div class='CodeRay'>
+  <div class='code'><pre>items.each{|item|
+    print item[<span class='sy'>:@title</span>], <span class='s'><span class='dl'>"</span><span class='k'> - </span><span class='dl'>"</span></span>, item[<span class='sy'>:@link</span>], <span class='s'><span class='dl'>"</span><span class='ch'>\n</span><span class='dl'>"</span></span>
+}</pre></div>
+</div>
+<p><code>item[:@foo]</code> is exactly equivalent to <code>item.child(:foo).text</code> -
+it returns text of first child with tag <code>:foo</code>. You can even assign
+to such pseudoattributes so <code>item[:@title] = "New title"</code> does the right thing</p>
+<p>Now if you pass a block to <code>descendants</code> or <code>children</code> it will do implicit <code>each</code>, so we can condense the whole example into:</p>
+<div class='CodeRay'>
+  <div class='code'><pre>feed = <span class='co'>XML</span>.load(<span class='s'><span class='dl'>"</span><span class='k'>http://web2.reddit.com/browse.rss?t=all&amp;s=highscore</span><span class='dl'>"</span></span>)
+feed.descendants(<span class='sy'>:item</span>) {|item|
+    print item[<span class='sy'>:@title</span>], <span class='s'><span class='dl'>"</span><span class='k'> - </span><span class='dl'>"</span></span>, item[<span class='sy'>:@link</span>], <span class='s'><span class='dl'>"</span><span class='ch'>\n</span><span class='dl'>"</span></span>
+}</pre></div>
+</div>
+<p>That wasn't so bad, was it ?</p>
+<p>Now we can use any selector we want as argument to <code>child</code>, <code>children</code>
+or <code>descendants</code> - tag names, hash tables, regular expressions, and even complex selectors
+build using <code>any(...)</code> and <code>all(...)</code>.</p>
+<p>Let's load <a href='http://del.icio.us/rss/tag/ruby'>del.icio.us RSS feed for Ruby</a> this time
+and print those items that have "Rails" in their titles.</p>
+<div class='CodeRay'>
+  <div class='code'><pre>feed = <span class='co'>XML</span>.load(<span class='s'><span class='dl'>"</span><span class='k'>http://del.icio.us/rss/tag/ruby</span><span class='dl'>"</span></span>)
+print feed.descendants(all(<span class='sy'>:item</span>, {<span class='sy'>:@title</span> =&gt; <span class='rx'><span class='dl'>/</span><span class='k'>Rails</span><span class='dl'>/</span><span class='mod'>i</span></span>}))</pre></div>
+</div>
+<p>As you can see - we first load the RSS into an XML object, then we select those descendants
+of it that match <code>all</code> listed criteria:<ul><li>their tag is <code>:item</code> and
+</li><li>their pseudoattribute <code>:@title</code> (that is text of their first child with tag name <code>:title</code> ) matches regular expression <code>/Rails/i</code> (<code>/i</code> means case-insensitive).</li></ul> Yay ! </p>
+<h3>Stream processing</h3>
+<p>magic/xml can also efficiently process long XML streams without loading everything to memory.
+Basically you call <code>XML.parse_as_twigs(file_name_or_file_handler)</code> with a block
+that will be getting all the nodes. The nodes do not have children yet (well, otherwise we'd
+need to load everything into memory), so if you want to read the children just tell the node
+to <code>complete!</code>. If you exit the block without calling <code>complete!</code>,
+the block will be called with the children as they are read. A simple example that extracts
+article IDs and names from a Wikipedia dump:</p>
+<div class='CodeRay'>
+  <div class='code'><pre><span class='co'>XML</span>.parse_as_twigs(<span class='co'>STDIN</span>) {|node|
+  <span class='r'>next</span> <span class='r'>unless</span> node.name == <span class='sy'>:page</span>
+  node.complete! <span class='c'># Read all children of &lt;page&gt;...&lt;/page&gt; node</span>
+  t = node[<span class='sy'>:@title</span>] <span class='c'># :@title is a child</span>
+  i = node[<span class='sy'>:@id</span>]    <span class='c'># :@id is another child</span>
+  print <span class='s'><span class='dl'>"</span><span class='il'><span class='idl'>#{</span>i<span class='idl'>}</span></span><span class='k'>: </span><span class='il'><span class='idl'>#{</span>t<span class='idl'>}</span></span><span class='ch'>\n</span><span class='dl'>"</span></span>
+}</pre></div>
+</div>
+<p>magic/xml can parse huge files in a very convenient way using very little memory. However the processing speed is somewhat limited by its all-Ruby REXML parser backend. It will be fixed in the future.</p>
+<h3>Possible problems</h3>
+<ul>
+<li>magic/xml uses REXML as its parser backend. This means it's slow with big documents,
+and also that maybe it's not such a great idea to process streams using it yet.
+On the other hand it's already perfect for all XMLs you can find on the web, which tend to be small.
+Switching to some other reasonably well-documented SAX-like parser should be simple enough, and I plan to do that before making magic/xml officially beta.</li>
+<li>magic/xml uses <code>Symbol</code>s for tag names and attribute names. Sometimes they contain
+funny letters like dash (<code>-</code>) or accented characters. In such case you can use <code>:"funny-name"</code> syntax in Ruby to get the right symbol. Such funny tags also cannot have automatic !-commands, so just use <code>add!</code> if you want to build XML with such tags.</li>
+<li>There is no convenient instalation process yet.</li></ul>
+</body>
+</html>

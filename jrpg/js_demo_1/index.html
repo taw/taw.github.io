@@ -1,0 +1,487 @@
+<html>
+<head>
+<title>JRPG - web version feasibility tests</title>
+<script type="text/javascript" src="jquery-1.2.1.js"></script>
+<style>
+  #game { position: relative; left: 200px; height: 480px; width: 640px; }
+
+  #map { position: relative; visibility: visible }
+  #battle { position: relative; background-image: url("i/bg-ice.jpg"); height: 320px; width: 320px; visibility: hidden; -inedx: 0 }
+  #viewport { border: 1px solid black; height: 320px; width: 320px; position: absolule; overflow: hidden; }
+  .map { height: 32px; width: 32px; position: absolute; background-image: url('i/angband.png'); z-index: 0; }
+  .rock  { background-position: -3072px -672px; }
+  .tree  { background-position: -1728px -736px; }
+  .grass { background-position: -288px -736px; }
+  .road  { background-position: -960px -736px; }
+
+  .msprite { height: 32px; width: 32px; position: absolute; background-image: url('i/angband.png'); z-index: 1; }
+
+  .red_scorpion { background-position: -2304px -576px }
+  .golden_coins { background-position: -288px  -224px }
+
+  .sprite { height: 32px; width: 24px; position: absolute; z-index: 2; }
+
+  .female_blue { background-image: url('i/female-blue.png'); }
+  .n0 { background-position:  -0px -0px; }
+  .n1 { background-position: -24px -0px; }
+  .n2 { background-position: -48px -0px; }
+  .e0 { background-position:  -0px -32px; }
+  .e1 { background-position: -24px -32px; }
+  .e2 { background-position: -48px -32px; }
+  .s0 { background-position:  -0px -64px; }
+  .s1 { background-position: -24px -64px; }
+  .s2 { background-position: -48px -64px; }
+  .w0 { background-position:  -0px -96px; }
+  .w1 { background-position: -24px -96px; }
+  .w2 { background-position: -48px -96px; }
+
+  #battle_chara     { top: 224px; left: 228px }
+  #battle_monster_0 { top: 224px; left:  64px }
+  #battle_monster_1 { top: 144px; left:  64px }
+  #battle_monster_2 { top:  64px; left:  64px }
+  #battle_monster_3 { top:  64px; left: 144px }
+  #battle_monster_4 { top:  64px; left: 224px }
+
+  .battle_label   { position: absolute; text-align: center; font-size: 16px; overflow: visible; color: #800000; width: 80px; height: 16px; }
+  .battle_label_highlight { font-weight: bold; color: #FFFF00; }
+  #battle_input   { top: 208px; left: 200px; }
+  #battle_label_0 { top: 208px; left: 40px; }
+  #battle_label_1 { top: 128px; left: 40px; }
+  #battle_label_2 { top:  48px; left: 40px; }
+  #battle_label_3 { top:  48px; left: 120px; }
+  #battle_label_4 { top:  48px; left: 200px; }
+
+  #messages {
+    height: 150px; width: 630px; position: absolute; top: 320px; border: 1px solid black;
+    padding: 5px;
+  }
+  #status {
+    height: 310px; width: 310px; position: absolute; left: 320px; top: 0px; border: 1px solid black;
+    padding: 5px;
+  }
+  #current_demon_label {
+    height: 155px; width: 310px; position: absolute; left: 0px; top: 200px;
+    font-size: 64px; text-align: center;
+    visibility: hidden;
+  }
+}
+</style>
+<script>
+var demons = [
+  ['&#x3042;', 'a'],
+  ['&#x3044;', 'i'],
+  ['&#x3046;', 'u'],
+  ['&#x3048;', 'e'],
+  ['&#x304A;', 'o'],
+  ['&#x304B;', 'ka'],
+  ['&#x304C;', 'ga'],
+  ['&#x304D;', 'ki'],
+  ['&#x304E;', 'gi'],
+  ['&#x304F;', 'ku'],
+
+  ['&#x3050;', 'gu'],
+  ['&#x3051;', 'ke'],
+  ['&#x3052;', 'ge'],
+  ['&#x3053;', 'ko'],
+  ['&#x3054;', 'go'],
+  ['&#x3055;', 'sa'],
+  ['&#x3056;', 'za'],
+  ['&#x3057;', 'shi'],
+  ['&#x3058;', 'ji'],
+  ['&#x3059;', 'su'],
+  ['&#x305A;', 'zu'],
+  ['&#x305B;', 'se'],
+  ['&#x305C;', 'ze'],
+  ['&#x305D;', 'so'],
+  ['&#x305E;', 'zo'],
+  ['&#x305F;', 'ta'],
+
+  ['&#x3060;', 'da'],
+  ['&#x3061;', 'chi'],
+  ['&#x3062;', 'ji'],
+  ['&#x3064;', 'tsu'],
+  ['&#x3065;', 'du'],
+  ['&#x3066;', 'te'],
+  ['&#x3067;', 'de'],
+  ['&#x3068;', 'to'],
+  ['&#x3069;', 'do'],
+  ['&#x306A;', 'na'],
+  ['&#x306B;', 'ni'],
+  ['&#x306C;', 'nu'],
+  ['&#x306D;', 'ne'],
+  ['&#x306E;', 'no'],
+  ['&#x306F;', 'ha'],
+
+  ['&#x3070;', 'ba'],
+  ['&#x3071;', 'pa'],
+  ['&#x3072;', 'hi'],
+  ['&#x3073;', 'bi'],
+  ['&#x3074;', 'pi'],
+  ['&#x3075;', 'fu'],
+  ['&#x3076;', 'bu'],
+  ['&#x3077;', 'pu'],
+  ['&#x3078;', 'he'],
+  ['&#x3079;', 'be'],
+  ['&#x307A;', 'pe'],
+  ['&#x307B;', 'ho'],
+  ['&#x307C;', 'bo'],
+  ['&#x307D;', 'po'],
+  ['&#x307E;', 'ma'],
+  ['&#x307F;', 'mi'],
+
+  ['&#x3080;', 'mu'],
+  ['&#x3081;', 'me'],
+  ['&#x3082;', 'mo'],
+  ['&#x3084;', 'ya'],
+  ['&#x3086;', 'yu'],
+  ['&#x3088;', 'yo'],
+  ['&#x3089;', 'ra'],
+  ['&#x308A;', 'ri'],
+  ['&#x308B;', 'ru'],
+  ['&#x308C;', 're'],
+  ['&#x308D;', 'ro'],
+  ['&#x308F;', 'wa'],
+
+  ['&#x3092;', 'wo'],
+  ['&#x3093;', 'n'],
+]
+
+function random_demons() {
+  var out = []
+  while(out.length < 5) {
+    var i = Math.floor(Math.random() * demons.length)
+    if(out.every(function(j) { return i != j })) {
+      out.push(i)
+    }
+  }
+  return out.map(function(i){ return demons[i] })
+}
+
+function new_coin() {
+  var widget = create_sprite("msprite golden_coins")
+  var loc = map.random_tile_pos()
+  var x1 = loc['x']
+  var y1 = loc['y']
+  $(widget).css({"top": y1+"px", "left": x1+"px"})
+  map.msprite_event(x1, y1, function() {
+    $("#map").get(0).removeChild(widget)
+    player.add_money(1)
+    new_coin()
+  })
+}
+function new_enemy() {
+  var widget = create_sprite("msprite red_scorpion")
+  var loc = map.random_tile_pos()
+  var x1 = loc['x']
+  var y1 = loc['y']
+  $(widget).css({"top": y1+"px", "left": x1+"px"})
+  map.msprite_event(x1, y1, function() {
+    $("#map").get(0).removeChild(widget)
+    start_battle()
+    new_enemy()
+  })
+}
+
+var current_demons = []
+var active_demon
+
+function start_battle() {
+  var d = random_demons();
+  var t = ""
+  current_demons = []
+  for(var i=0; i<5; i++) {
+    $("#battle_label_" + i).html(d[i][0]) // text() but we need to deal with &-escaping
+    current_demons.push({'i': i, 'label': d[i][0], 'answer': d[i][1]})
+    $("#battle_label_" + i).css('visibility', 'inherit')
+    $("#battle_monster_" + i).css('visibility', 'inherit')
+  }
+  $("#battle_input").text("")
+  $("#messages").text(t)
+
+  select_random_demon()
+
+  battle_mode()
+}
+
+function select_random_demon() {
+  for(var i=0; i<5; i++)
+    $("#battle_label_" + i).removeClass('battle_label_highlight')
+  if(current_demons.length == 0) {
+    world_mode()
+  } else {
+    active_demon = current_demons[Math.floor(Math.random() * current_demons.length)]
+    $("#battle_label_" + active_demon.i).addClass('battle_label_highlight')
+    $("#current_demon_label").html(active_demon.label)
+  }
+}
+
+function attack(incantation) {
+  if(incantation == active_demon.answer) {
+    $("#messages").html("Attack using <i>" + incantation + "</i> slayed the demon")
+    player.add_xp(1)
+  } else {
+    $("#messages").html("Attack using <i>" + incantation + " </i>failed. Correct answer is " + active_demon.answer)
+    player.lose_hp(1)
+  }
+  $("#battle_label_" + active_demon.i).css('visibility', 'hidden')
+  $("#battle_monster_" + active_demon.i).css('visibility', 'hidden')
+  current_demons = current_demons.filter(function(o){ return o != active_demon })
+  select_random_demon()
+}
+
+var mode = 'world'
+function battle_mode() {
+  mode = 'battle'
+  $("#map").css("visibility", "hidden")
+  $("#battle").css("visibility", "visible")
+  $("#current_demon_label").css("visibility", "visible")
+}
+function world_mode() {
+  mode = 'world'
+  $("#map").css("visibility", "visible")
+  $("#battle").css("visibility", "hidden")
+  $("#current_demon_label").css("visibility", "hidden")
+}
+
+var map = {
+  msprite_event: function(x1, y1, f) {
+    this.event_boxes.push({'x1': x1, 'x2': x1+31, 'y1': y1, 'y2': y1+31, 'action': f})
+  },
+  random_tile_pos: function() {
+    while(true) {
+      var tx = Math.floor(Math.random() * (this.x_size/32))
+      var ty = Math.floor(Math.random() * (this.y_size/32))
+      if(this.can_enter(tx,ty))
+        return {'x':32*tx, 'y':32*ty}
+    }
+  },
+  set_mapdata: function(mapdata) {
+    var tile_names = {' ': 'grass', 'r': 'rock', '.': 'road', 't': 'tree'}
+    for(var y=0; y<mapdata.length; y++) {
+      for(var x=0; x<mapdata[y].length; x++) {
+        var terrain = tile_names[mapdata[y][x]];
+        var xpos=x*32;
+        var ypos=y*32;
+        $("#map").append("<div class='map "+terrain+"' style='top: "+ypos+"px; left: "+xpos+"px'></div>");
+      }
+    }
+    this.mapdata = mapdata
+    this.y_size = 32 * mapdata.length
+    this.x_size = 32 * mapdata[0].length // FIXME: .max, not .first
+    this.event_boxes = []
+  },
+  shift: function(x,y) {
+    if(x < 0) x = 0
+    if(y < 0) y = 0
+    if(x >= map.x_size - 320) x = map.x_size - 320
+    if(y >= map.y_size - 320) y = map.y_size - 320
+    this.shift_x = x
+    this.shift_y = y
+    $("#map").css({"left": -this.shift_x+"px", "top": -this.shift_y+"px"})
+  },
+  keep_in_viewport: function(x,y) {
+    if(y - this.shift_y < 64)
+      this.shift(this.shift_x, y - 64)
+    if(y - this.shift_y >= 256)
+      this.shift(this.shift_x, y - 256)
+    if(x - this.shift_x < 64)
+      this.shift(x - 64, this.shift_y)
+    if(x - this.shift_x >= 256)
+      this.shift(x - 256, this.shift_y)
+  },
+  can_enter: function(tx, ty) {
+    var tile = this.mapdata[ty][tx]
+    if(tile == 'r' || tile == 't')
+      return false
+    else if(tile == ' ' || tile == '.')
+      return true
+    // alert("Data:" + tx + ", " + ty + ", " + tile)
+    return true
+  },
+  move_ok: function(x,y) {
+    if(x < 0 || y < 0 || x >= this.x_size - 24 || y >= this.y_size - 32)
+      return false
+    var min_tile_x = Math.floor((x) / 32)
+    var max_tile_x = Math.floor((x+23) / 32)
+    var min_tile_y = Math.floor((y+2) / 32)
+    var max_tile_y = Math.floor((y+29) / 32)
+    for(var ty=min_tile_y; ty <= max_tile_y; ty++)
+      for(var tx=min_tile_x; tx <= max_tile_x; tx++)
+        if(!this.can_enter(tx, ty))
+          return false
+    return true
+  },
+  events: function(x, y) {
+    var tmp = this.event_boxes
+    this.event_boxes = []
+    for(var i in tmp) {
+      var event_box = tmp[i]
+      if(!(x + 23 < event_box.x1 || x > event_box.x2 || y + 31 < event_box.y1 || y > event_box.y2)) {
+        event_box.action()
+      } else {
+        this.event_boxes.push(event_box)
+      }
+    }
+  }
+}
+
+function create_sprite(classes) {
+  var widget = document.createElement('div')
+  $("#map").get(0).appendChild(widget)
+  $(widget).addClass(classes)
+  return widget
+}
+
+var player = {
+  y: 70,
+  x: 80,
+  dir: 's',
+  phase: 0,
+  move: function(dx,dy,new_dir) {
+    new_x = this.x + dx*4
+    new_y = this.y + dy*4
+
+    if(map.move_ok(new_x, new_y)) {
+      var phases = [0,0,0,0,1,1,1,1,2,2,2,2,1,1,1,1]
+      this.x = new_x
+      this.y = new_y
+      var old_cls = this.dir + phases[this.phase]
+      this.phase = (this.phase + 1) % 16
+      this.dir = new_dir
+      var new_cls = this.dir + phases[this.phase]
+      this.widget.css({"top": this.y+"px", "left": this.x+"px"})
+      this.widget.removeClass(old_cls)
+      this.widget.addClass(new_cls)
+      map.keep_in_viewport(this.x, this.y)
+      map.events(new_x, new_y)
+    }
+  },
+  initialize: function() {
+    this.widget = $(create_sprite("sprite female_blue"))
+    this.move(0,0,'s')
+    this.set_name("Ayumi")
+    this.set_money(0)
+    this.set_xp(0)
+    this.set_hp(this.hpmax)
+  },
+  add_money: function(v) { this.set_money(this.money + v) },
+  add_xp: function(v) { this.set_xp(this.xp + v) },
+  lose_hp: function(v) { this.set_hp(this.hp - v) },
+  set_hp: function(v) {
+    if(v <= 0)
+    {
+      $('#messages').text("You have been badly beaten by the demons, but thanks to the NHS you are healed now.")
+      v = this.hpmax
+      world_mode()
+    }
+    this.hp = v; $("#hp").text(v)
+  },
+  set_money: function(v) { this.money = v; $("#money").text(v) },
+  set_name: function(v) { this.name = v; $("#player_name").text(v) },
+  set_xp: function(v) {
+    this.xp = v; $("#xp").text(v)
+    this.set_level(1 + Math.floor(this.xp / 100))
+  },
+  // private
+  set_level: function(v) {
+    this.level = v; $("#level").text(v)
+    this.set_hpmax(2 + this.level)
+  },
+  // private
+  set_hpmax: function(v) { this.hpmax = v; $("#hpmax").text(v) },
+}
+
+function battle_keypress(e) {
+  var input_so_far = $("#battle_input").text()
+
+  if(e.which == 8) {
+    input_so_far = input_so_far.substr(0, input_so_far.length-1)
+  } else if(e.which == 13) {
+    attack(input_so_far)
+    input_so_far = ""
+  } else if(e.which >= 65 && e.which <= 90) {
+    input_so_far += String.fromCharCode(e.which + 32)
+  } else if(e.which >= 97 && e.which <= 122) {
+    input_so_far += String.fromCharCode(e.which)
+  }
+  $("#battle_input").text(input_so_far)
+}
+function world_keypress(e) {
+       if(e.which == 39 || e.which == 54) player.move(1, 0, 'e')
+  else if(e.which == 37 || e.which == 52) player.move(-1, 0, 'w')
+  else if(e.which == 38 || e.which == 56) player.move(0, -1, 'n')
+  else if(e.which == 40 || e.which == 50) player.move(0, 1, 's')
+  else if(e.which == 49) player.move(-1, 1, 's')
+  else if(e.which == 51) player.move(1, 1, 's')
+  else if(e.which == 55) player.move(-1, -1, 'n')
+  else if(e.which == 57) player.move(1, -1, 'n')
+}
+
+document.onkeydown = function(e) { return false }
+document.onkeypress = function(e) {
+  if(mode == 'battle')
+    battle_keypress(e)
+  else
+    world_keypress(e)
+  return false
+}
+
+$(document).ready(function(){
+  var mapdata = [
+    " .r       t ",
+    " .   t r    ",
+    "r..  r   r  ",
+    "  .....   t ",
+    " t.   ..    ",
+    "  . r  .... ",
+    " ..   t   ..",
+    " . t  r    r",
+    " .      t   ",
+    " .  tt   t  ",
+    " .    t     ",
+  ]
+  map.set_mapdata(mapdata)
+  map.shift(48, 16)
+  $("#messages").text("Welcome to jrpg")
+  player.initialize()
+  new_coin()
+  new_coin()
+  new_enemy()
+  new_enemy()
+  new_enemy()
+});
+</script>
+</head>
+<body>
+<div id="game">
+  <div id="viewport">
+    <div id="map"></div>
+    <div id="battle">
+      <div class="sprite female_blue w0" id="battle_chara"></div>
+      <div class="battle_label battle_label_highlight" id="battle_input"></div>
+      <div class="battle_label" id="battle_label_0"></div>
+      <div class="battle_label" id="battle_label_1"></div>
+      <div class="battle_label" id="battle_label_2"></div>
+      <div class="battle_label" id="battle_label_3"></div>
+      <div class="battle_label" id="battle_label_4"></div>
+      <div class="msprite red_scorpion" id="battle_monster_0"></div>
+      <div class="msprite red_scorpion" id="battle_monster_1"></div>
+      <div class="msprite red_scorpion" id="battle_monster_2"></div>
+      <div class="msprite red_scorpion" id="battle_monster_3"></div>
+      <div class="msprite red_scorpion" id="battle_monster_4"></div>
+    </div>
+  </div>
+  <div id="status">
+    <table>
+      <tr><th>Name:</th><td><span id="player_name"></span></td></tr>
+      <tr><th>Level:</th><td><span id="level"></span></td></tr>
+      <tr><th>XP:</th><td><span id="xp"></span></td></tr>
+      <tr><th>HP:</th><td><span id="hp"></span>/<span id="hpmax"></span></td></tr>
+      <tr><th>Money:</th><td><span id="money"></span> euro</td></tr>
+    </table>
+    <div id="current_demon_label"></div>
+  </div>
+  <div id="messages"></div>
+</div>
+</body>
+</html>
