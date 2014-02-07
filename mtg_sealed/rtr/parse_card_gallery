@@ -1,0 +1,20 @@
+#!/usr/bin/env ruby
+
+require "rubygems"
+require "hpricot"
+require 'fileutils'
+
+doc = Hpricot(File.read('card_gallery.html'))
+
+FileUtils.mkdir_p "images"
+
+(doc/".article-image").each{|a|
+  next unless a["title"]
+  t = a["title"].gsub("\342\200\231", "'")
+  url = a["src"]
+  path = "images/" + t.downcase.gsub(/[^a-z]+/, "_") + "_" + File.basename(url)
+  p [t, url, path]
+  unless File.exist?(path)
+    system "wget", "-nc", url, "-O", path
+  end
+}

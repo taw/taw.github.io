@@ -1,0 +1,62 @@
+#!/usr/bin/env ruby
+
+require "rubygems"
+require "json"
+require "pp"
+
+$dirs_rarity = ["mythics", "rares", "uncommons", "commons", "basic_lands"]
+$dirs_cmc    = Dir["cmc/*"].sort_by{|d| -File.basename(d).to_i}.uniq
+
+class Card
+  attr_accessor :name, :remote_url, :cmc, :rarity, :collectors_number, :base_name
+  def initialize(name, remote_url, local_url)
+    @name       = name
+    @remote_url = remote_url
+    @base_name  = File.basename(local_url)
+  end
+  
+  def find!
+    $dirs_rarity.each{|d|
+      if File.exist?("#{d}/#{@base_name}")
+        @rarity = File.basename(d)
+      end
+    }
+    raise "No rarity for card #{name} (#{base_name})" unless @rarity
+    $dirs_cmc.each{|d|
+      if File.exist?("#{d}/#{@base_name}")
+        @cmc = File.basename(d).to_i
+      end
+      if File.exist?("#{d}x/#{@base_name}")
+        @cmc = 20+File.basename(d).to_i
+      end
+    }
+    raise "No cmc for card #{name} (#{base_name})" unless @cmc
+  end
+  
+  def rarity_number
+    $dirs_rarity.index(@rarity) or raise "No rarity #{@rarity}"
+  end
+  
+  def card_info
+    # Sort key must have constant number of digits, since JavaScript is lame and stringifies things
+    # for comparison for no reason
+    [
+      name,
+      remote_url,
+      "#{rarity}/#{base_name}",
+      (rarity_number+1)*1000 + collectors_number,
+      99000 - (cmc)*1000 + collectors_number,
+    ]
+  end
+end
+
+cards = File.readlines('imgs').map{|e| Card.new(*eval(e))}
+cards2 = {}
+cards.each_with_index{|card, i|
+  card.collectors_number = i
+  card.find!
+  (cards2[card.rarity] ||= []) << card.card_info
+}
+$dirs_rarity.each{|d|
+  puts "var #{d}=#{cards2[d].to_json};"
+}
