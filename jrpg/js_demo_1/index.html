@@ -417,14 +417,14 @@ function world_keypress(e) {
   else if(e.which == 57) player.move(1, -1, 'n')
 }
 
-document.onkeydown = function(e) { return false }
-document.onkeypress = function(e) {
+// $(document).keydown(function(e) { return false })
+$(document).keypress(function(e) {
   if(mode == 'battle')
     battle_keypress(e)
   else
     world_keypress(e)
   return false
-}
+})
 
 $(document).ready(function(){
   var mapdata = [
